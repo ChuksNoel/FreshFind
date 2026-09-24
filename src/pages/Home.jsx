@@ -1,6 +1,9 @@
 import React from 'react';
 import '../assets/CSS/home.css'
-import Tree from '../Components/Tree';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import Minbar from '../components/MinBar';
+import HomeMar from '../components/HomeMarkets';
 
 function Home(){
     return(
@@ -19,6 +22,10 @@ function Home(){
         // </section>
         // </React.Fragment>
         <React.Fragment>
+            <Navbar></Navbar>
+            <Hero></Hero>
+            <Minbar></Minbar>
+            <HomeMar></HomeMar>
              <section>
                 
              </section>
