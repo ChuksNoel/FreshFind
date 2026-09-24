@@ -8,6 +8,7 @@ function Home(){
         {/* Hero */}
         <section className='hero-section'>
           <h1>Fresh Find</h1>
+          <small>Fresh All Along</small>
         </section>
         <img src="" alt="intemediary image"/>
         <section>
