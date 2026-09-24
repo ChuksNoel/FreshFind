@@ -1,7 +1,17 @@
 function Navbar() {
     return(
         <React.Fragment>
-            <h1 style='background-color: #000; color: #fff; padding: 20px; border: 1px solid; border-radius: 10px;'>This is the Navbar</h1>
+            <nav>
+              <div>
+                <img src="" alt="logo" />
+              </div>
+
+              <div>
+                 <a href="">Markets</a>
+                 <a href="">Produce Guide</a>
+                 <a href=""></a>
+              </div>
+            </nav>
         </React.Fragment>
 
     )
