@@ -1,11 +1,13 @@
 import React from 'react';
 import '../assets/CSS/home.css'
+import Tree from '../Components/Tree';
 
 function Home(){
     return(
         <React.Fragment>
         <h1 style={{ backgroundColor: '#000', color: '#fff', padding: 20, border: '1px solid', borderRadius: 10 }}>This is the Home Page</h1>
         {/* Hero */}
+        <Tree />
         <section className='hero-section'>
           <h1>Fresh Find</h1>
           <small>Fresh All Along</small>
