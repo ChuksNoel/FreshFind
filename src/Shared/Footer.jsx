@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowUpRight, Sprout } from 'lucide-react';
 
 export default function Footer() {
+  const { pathname } = useLocation();
   return (
-    <footer className="site-footer">
+    <footer className={`site-footer${pathname === '/' ? ' soil-footer' : ''}`}>
       <div className="container footer-grid">
         <div>
           <Link to="/" className="brand footer-brand"><span className="brand-mark"><Sprout size={20} /></span><span className="brand-copy"><strong>FreshFind</strong><small>FRESH ALL ALONG</small></span></Link>
