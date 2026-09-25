@@ -6,7 +6,7 @@ import produce from '../JSON/produce.json';
 import ProduceCard from '../components/ProduceCard';
 import { marketImage } from '../utils/market';
 import '../Style/TreeHome.css';
-import treestump from '../assets/Images/LandingTree/Stump2.png';
+import treestump from '../assets/Images/LandingTree/stump2.png';
 import treetop from '../assets/Images/LandingTree/Treetop.png';
 
 // Home1's canopy → hanging panes → roots outline, with a shared scroll-driven axis.
