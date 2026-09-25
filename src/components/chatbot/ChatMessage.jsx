@@ -3,19 +3,15 @@ import SeasonalResultCard from "./SeasonalResultCard";
 
 
 const ChatMessage = ({ message }) => {
-
     return (
-
-        <div
+     <div
             className={
                 message.sender === "user"
                     ? "chat-message-wrapper user-wrapper"
                     : "chat-message-wrapper bot-wrapper"
             }
         >
-
             {/* Normal message */}
-
             <div
                 className={
                     message.sender === "user"
@@ -23,14 +19,10 @@ const ChatMessage = ({ message }) => {
                         : "chat-message bot-message"
                 }
             >
-
                 {message.text}
 
             </div>
-
-
             {/* Single Market */}
-
             {message.type === "market" && message.data && (
 
                 <MarketResultCard
@@ -38,10 +30,7 @@ const ChatMessage = ({ message }) => {
                 />
 
             )}
-
-
             {/* Multiple Markets */}
-
             {message.type === "markets" &&
                 Array.isArray(message.data) && (
 
@@ -59,10 +48,7 @@ const ChatMessage = ({ message }) => {
                     </div>
 
                 )}
-
-
             {/* Seasonal Results */}
-
             {message.type === "seasonal" &&
                 Array.isArray(message.data) && (
 
@@ -73,16 +59,12 @@ const ChatMessage = ({ message }) => {
                             <SeasonalResultCard
                                 key={item.id}
                                 item={item}
-                            />
-
+                           />
                         ))}
 
                     </div>
-
                 )}
-
         </div>
-
     );
 };
 
