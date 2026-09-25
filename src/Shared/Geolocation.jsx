@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Geolocation(){
     return(
        <React.Fragment>

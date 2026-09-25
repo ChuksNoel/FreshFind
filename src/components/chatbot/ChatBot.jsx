@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getBotResponse } from "../../utils/chatbotEngine";
 import ChatMessage from "./ChatMessage";
-import "./ChatBot.css";
+import "./chatbot.css";
 
 const ChatBot = () => {
     const [open, setOpen] = useState(false);

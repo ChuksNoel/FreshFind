@@ -1,34 +1,43 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Markets from './components/HomeMarkets';
-import MarketsDetails from './pages/MarketsDetails';
-// import Shared from './pages/Shared';
-import ChatBot from './Shared/Chatbot';
-import Clock from './Shared/Clock';
-import Filter from './Shared/Filter';
-import Footer from './Shared/Footer';
-import Geolocation from './Shared/Geolocation';
+import { useEffect } from 'react';
+import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom';
+import './App.css';
+import { SavedProvider } from './context/SavedContext';
+import ChatBot from './components/chatbot/ChatBot';
 import Navbar from './components/Navbar';
-import Search from './Shared/Search';
+import Footer from './Shared/Footer';
+import Home from './pages/Home';
+import Markets from './pages/Markets';
+import MarketsDetails from './pages/MarketsDetails';
+import ProduceGuide from './pages/ProduceGuide';
+import Bookmarks from './Shared/Bookmarks';
 
-
-function App(){
-  return(
-     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/markets' element={<Markets />} />
-        <Route path='/markets/:id' element={<MarketsDetails />} />
-        <Route path='/shared/chatbot' element={<ChatBot />} />
-        <Route path='/shared/clock' element={<Clock />} />
-        <Route path='/shared/filter' element={<Filter />} />
-        <Route path='/shared/footer' element={<Footer />} />
-        <Route path='/shared/geolocation' element={<Geolocation />} />
-        <Route path='/components/navbar' element={<Navbar />} />
-        <Route path='/shared/search' element={<Search />} />
-      </Routes>
-      <Footer />
-     </BrowserRouter>
-  )
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
 }
+
+function App() {
+  return (
+    <BrowserRouter>
+      <SavedProvider>
+        <ScrollToTop />
+        <Navbar />
+        <main id="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/markets" element={<Markets />} />
+            <Route path="/markets/:id" element={<MarketsDetails />} />
+            <Route path="/produce-guide" element={<ProduceGuide />} />
+            <Route path="/saved" element={<Bookmarks />} />
+            <Route path="*" element={<div className="container empty-page"><h1>Page not found</h1><Link to="/" className="button button-primary">Back to home</Link></div>} />
+          </Routes>
+        </main>
+        <Footer />
+        <ChatBot />
+      </SavedProvider>
+    </BrowserRouter>
+  );
+}
+
 export default App;

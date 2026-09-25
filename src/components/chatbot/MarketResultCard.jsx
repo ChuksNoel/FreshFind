@@ -1,18 +1,17 @@
+import { Link } from 'react-router-dom';
+import { marketImage } from '../../utils/market';
+
 const MarketResultCard = ({ market }) => {
 
     return (
 
         <div className="market-result-card">
 
-            {market.image && (
-
                 <img
-                    src={market.image}
-                    alt={market.name}
+                    src={marketImage(market)}
+                    alt="Fresh produce at a Lagos market"
                     className="market-result-image"
                 />
-
-            )}
 
             <div className="market-result-content">
 
@@ -40,9 +39,9 @@ const MarketResultCard = ({ market }) => {
 
                 </div>
 
-                <button className="view-market-btn">
+                <Link to={`/markets/${market.id}`} className="view-market-btn">
                     View Market
-                </button>
+                </Link>
 
             </div>
 
