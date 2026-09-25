@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "intent": "greeting",
+    "keywords": [
+      "hello",
+      "hi",
+      "hey",
+      "good morning",
+      "good afternoon",
+      "good evening"
+    ],
+    "response": "Hello! I'm the FreshFind Assistant. I can help you find markets, fresh produce, opening hours and seasonal food."
+  },
+
+  {
+    "id": 2,
+    "intent": "help",
+    "keywords": [
+      "help",
+      "what can you do",
+      "how can you help"
+    ],
+    "response": "I can help you find nearby markets, check opening days, discover produce and see what's currently in season."
+  },
+
+  {
+    "id": 3,
+    "intent": "market",
+    "keywords": [
+      "market",
+      "markets",
+      "farmers market"
+    ],
+    "response": "Sure! I can help you find a farmers market. Tell me a location, day or produce you're looking for."
+  },
+
+  {
+    "id": 4,
+    "intent": "seasonal",
+    "keywords": [
+      "season",
+      "seasonal",
+      "in season",
+      "what is fresh"
+    ],
+    "response": "You can discover currently available produce in our Seasonal Picks section."
+  },
+
+  {
+    "id": 5,
+    "intent": "location",
+    "keywords": [
+      "near me",
+      "nearby",
+      "closest",
+      "my location"
+    ],
+    "response": "I can help find markets near you. Allow FreshFind to use your location or search by area."
+  },
+
+  {
+    "id": 6,
+    "intent": "goodbye",
+    "keywords": [
+      "bye",
+      "goodbye",
+      "thanks",
+      "thank you"
+    ],
+    "response": "You're welcome! Enjoy finding something fresh with FreshFind."
+  }
+]

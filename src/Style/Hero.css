@@ -1,0 +1,248 @@
+.hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 500px;
+
+  display: flex;
+  align-items: center;
+
+  background-image: url("../assets/hero-market.jpg");
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+}
+
+
+/* Dark overlay */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(8, 24, 18, 0.78) 0%,
+    rgba(8, 24, 18, 0.5) 45%,
+    rgba(8, 24, 18, 0.08) 100%
+  );
+}
+
+
+/* Main content */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+  padding: 60px 50px;
+
+  color: white;
+}
+
+
+/* Small Label */
+
+.hero-label {
+  display: inline-block;
+
+  margin-bottom: 15px;
+  padding: 6px 14px;
+
+  background-color: #176d52;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* Heading */
+
+.hero-text h1 {
+  max-width: 650px;
+
+  margin: 0 0 18px;
+
+  font-size: 50px;
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+
+/* Description */
+
+.hero-text p {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: #f1f1f1;
+
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+
+/* Search Area */
+
+.hero-search {
+  width: 480px;
+
+  margin-top: 30px;
+  padding: 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: white;
+
+  border-radius: 14px;
+}
+
+
+/* Location */
+
+.hero-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding-left: 12px;
+
+  color: #2e3633;
+
+  font-size: 14px;
+}
+
+.hero-location svg {
+  color: #176d52;
+}
+
+
+/* Find Market Button */
+
+.hero-search button {
+  padding: 14px 26px;
+
+  border: none;
+  border-radius: 11px;
+
+  background-color: #165c45;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+.hero-search button:hover {
+  background-color: #0f4937;
+}
+
+
+/* Community Section */
+
+.hero-community {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-top: 28px;
+}
+
+
+/* Avatars */
+
+.hero-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatar,
+.avatar-more {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: -7px;
+
+  border: 2px solid white;
+  border-radius: 50%;
+
+  background-color: #eeeeee;
+  color: #333;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatar-more {
+  background-color: #176d52;
+  color: white;
+}
+
+
+/* Community text */
+
+.hero-community p {
+  margin: 0;
+
+  color: white;
+
+  font-size: 13px;
+}
+
+.hero-community span {
+  color: #3bc18d;
+  font-weight: 600;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: 550px;
+  }
+
+  .hero-content {
+    padding: 40px 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 38px;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+  }
+
+  .hero-search {
+    width: 100%;
+  }
+
+  .hero-community {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

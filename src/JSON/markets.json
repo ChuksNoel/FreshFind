@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Ikeja Fresh Market",
+    "area": "Ikeja",
+    "address": "Ikeja, Lagos",
+    "description": "A community farmers market offering fresh fruits, vegetables and locally sourced produce.",
+    "days": ["Monday", "Wednesday", "Saturday"],
+    "openingTime": "08:00",
+    "closingTime": "17:00",
+    "produce": [
+      "Tomatoes",
+      "Pepper",
+      "Carrots",
+      "Yam",
+      "Spinach"
+    ],
+    "latitude": 6.6018,
+    "longitude": 3.3515,
+    "image": "/images/markets/ikeja-market.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Lekki Farmers Market",
+    "area": "Lekki",
+    "address": "Lekki, Lagos",
+    "description": "A modern local market featuring fresh produce, herbs and seasonal food.",
+    "days": ["Tuesday", "Thursday", "Saturday"],
+    "openingTime": "09:00",
+    "closingTime": "18:00",
+    "produce": [
+      "Tomatoes",
+      "Bananas",
+      "Cucumber",
+      "Lettuce",
+      "Onions"
+    ],
+    "latitude": 6.4698,
+    "longitude": 3.5852,
+    "image": "/images/markets/lekki-market.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Yaba Community Market",
+    "area": "Yaba",
+    "address": "Yaba, Lagos",
+    "description": "A neighborhood market serving residents with affordable fresh food and seasonal produce.",
+    "days": ["Monday", "Friday", "Saturday"],
+    "openingTime": "07:30",
+    "closingTime": "16:30",
+    "produce": [
+      "Carrots",
+      "Pepper",
+      "Plantain",
+      "Spinach",
+      "Oranges"
+    ],
+    "latitude": 6.5158,
+    "longitude": 3.3899,
+    "image": "/images/markets/yaba-market.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Surulere Green Market",
+    "area": "Surulere",
+    "address": "Surulere, Lagos",
+    "description": "A local market focused on fresh vegetables, fruits and farm produce.",
+    "days": ["Wednesday", "Friday", "Sunday"],
+    "openingTime": "08:00",
+    "closingTime": "17:00",
+    "produce": [
+      "Tomatoes",
+      "Watermelon",
+      "Okra",
+      "Yam",
+      "Onions"
+    ],
+    "latitude": 6.4969,
+    "longitude": 3.3506,
+    "image": "/images/markets/surulere-market.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Victoria Island Fresh Market",
+    "area": "Victoria Island",
+    "address": "Victoria Island, Lagos",
+    "description": "A premium urban fresh-food market offering seasonal fruits, vegetables and herbs.",
+    "days": ["Thursday", "Saturday", "Sunday"],
+    "openingTime": "09:00",
+    "closingTime": "18:00",
+    "produce": [
+      "Lettuce",
+      "Cucumber",
+      "Apples",
+      "Bananas",
+      "Carrots"
+    ],
+    "latitude": 6.4281,
+    "longitude": 3.4219,
+    "image": "/images/markets/vi-market.jpg"
+  }
+]

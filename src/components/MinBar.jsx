@@ -1,36 +1,44 @@
-import React from 'react';
+import React from "react";
+import "../Style/MinBar.css";
 
-function MinBar(){
-    return(
-      <React.Fragment>
-        <section>
-            <button>
-                <i>icon</i>
-                <button>
-                    <i>icon</i>
-                    Organic Certified
-                </button>
-                <button>
-                    <i>icon</i>
-                    Seasonal Guides
-                </button>
-                <button>
-                    <i>icon</i>
-                    Artisan Goods
-                </button>
-                <button>
-                    <i>icon</i>
-                    Trending Now
-                </button>
-                <button>
-                    <i>icon</i>
-                    Pet Friendly
-                </button>
-                
-            </button>
-        </section>
-      </React.Fragment>
-    )
+function MinBar() {
+  return (
+    <section className="minbar">
+      <div className="minbar-container">
+
+        <button className="minbar-btn active">
+          <span className="minbar-icon">▣</span>
+          All Markets
+        </button>
+
+        <button className="minbar-btn">
+          <span className="minbar-icon">♧</span>
+          Organic Certified
+        </button>
+
+        <button className="minbar-btn">
+          <span className="minbar-icon">▦</span>
+          Seasonal Guides
+        </button>
+
+        <button className="minbar-btn">
+          <span className="minbar-icon">✧</span>
+          Artisan Goods
+        </button>
+
+        <button className="minbar-btn">
+          <span className="minbar-icon">↗</span>
+          Trending Now
+        </button>
+
+        <button className="minbar-btn">
+          <span className="minbar-icon">☆</span>
+          Pet Friendly
+        </button>
+
+      </div>
+    </section>
+  );
 }
 
-export default MinBar
+export default MinBar;

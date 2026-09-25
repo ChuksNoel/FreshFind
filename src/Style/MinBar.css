@@ -1,0 +1,61 @@
+.minbar {
+  width: 100%;
+  padding: 10px 8px;
+  background-color: #ffffff;
+}
+
+.minbar-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.minbar-container::-webkit-scrollbar {
+  display: none;
+}
+
+.minbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  background-color: #ffffff;
+  color: #626866;
+
+  border: 1px solid #d9dedd;
+  border-radius: 25px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.minbar-btn:hover {
+  background-color: #f3f6f5;
+  border-color: #c8cfcd;
+}
+
+.minbar-btn.active {
+  background-color: #145b46;
+  color: white;
+  border-color: #145b46;
+  font-weight: 600;
+}
+
+.minbar-icon {
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

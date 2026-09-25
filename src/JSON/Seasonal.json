@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Tomatoes",
+    "months": ["March", "April", "May", "June"],
+    "category": "Vegetables",
+    "message": "Fresh and widely available during this period."
+  },
+  {
+    "id": 2,
+    "name": "Watermelon",
+    "months": ["March", "April", "May", "June"],
+    "category": "Fruits",
+    "message": "A refreshing seasonal fruit for warmer months."
+  },
+  {
+    "id": 3,
+    "name": "Yam",
+    "months": ["August", "September", "October", "November"],
+    "category": "Tubers",
+    "message": "New yam is commonly available during this season."
+  },
+  {
+    "id": 4,
+    "name": "Carrots",
+    "months": ["November", "December", "January", "February"],
+    "category": "Vegetables",
+    "message": "A good seasonal choice during the cooler months."
+  }
+]
