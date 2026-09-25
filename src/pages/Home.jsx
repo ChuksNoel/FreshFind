@@ -6,7 +6,7 @@ import produce from '../JSON/produce.json';
 import ProduceCard from '../components/ProduceCard';
 import { marketImage } from '../utils/market';
 import '../Style/TreeHome.css';
-import treestump from '../assets/Images/LandingTree/Stump.png';
+import treestump from '../assets/Images/LandingTree/Stump2.png';
 import treetop from '../assets/Images/LandingTree/Treetop.png';
 
 // Home1's canopy → hanging panes → roots outline, with a shared scroll-driven axis.
@@ -24,7 +24,7 @@ function useTreeMotion(root, enabled) {
       const viewportCenter = window.innerHeight / 2;
       const top = journey.getBoundingClientRect().top;
       const turn = (viewportCenter - top) * 0.065;
-      element.style.setProperty('--tree-turn', `${still ? 0 : turn}deg`);
+      element.style.setProperty('--tree-turn', `${still  ? 0 : turn}deg`);
       sections.forEach((section) => {
         const bounds = section.getBoundingClientRect();
         // Each branch has a different starting angle on the same turning trunk.
@@ -52,6 +52,10 @@ function useTreeMotion(root, enabled) {
       observer.disconnect();
     };
   }, [root, enabled]);
+}
+
+function Spanify(text) {
+  return text.split('').map((char, index) => <span key={index} className='hero-bounce'>{char}</span>);
 }
 
 function TreeSpine() {
@@ -99,18 +103,38 @@ export default function Home() {
       <section className="tree-hero" aria-labelledby="tree-title">
         <div className="tree-hero-orbit" aria-hidden="true" />
         <div className="tree-hero-copy">
-          <span className="hero-kicker"><span className="kicker-dot" /> ROOTED IN LAGOS. GROWING CLOSER.</span>
-          <h1 id="tree-title">Fresh finds.<br /><em>Deep roots.</em></h1>
-          <p>Follow the branches to good food, local markets,<br className="tree-desktop-break" /> and a little more connection to where it all begins.</p>
+          <span className="hero-kicker">
+            <span className="kicker-dot" />
+            ROOTED IN LAGOS. GROWING CLOSER.
+          </span>
+
+          <h1 id="tree-title">
+            {Spanify('Fresh')} {Spanify('Find.')}
+            <br />
+            {Spanify('Deep')} {Spanify('Roots.')}</h1>
+          <p>
+            Follow the branches to good food, local markets,
+            <br className="tree-desktop-break" />
+            and a little more connection to where it all begins.
+          </p>
           <form className="hero-search tree-search" onSubmit={handleSearch}>
             <Search size={20} aria-hidden="true" />
             <input aria-label="Search markets or produce" placeholder="A neighbourhood, a market, a fresh craving…" value={search} onChange={(event) => setSearch(event.target.value)} />
-            <button type="submit" aria-label="Find markets"><ArrowUpRight size={21} /></button>
+            <button type="submit" aria-label="Find markets">
+              <ArrowUpRight size={21} />
+            </button>
           </form>
           <span className="tree-location"><MapPin size={13} /> A little closer to the fresh side of Lagos</span>
         </div>
         <img className="tree-canopy" src={treetop} alt="" width="1536" height="1024" fetchPriority="high" />
-        <span className="canopy-note canopy-note-left"><Sprout size={21} /><span>Grown with care.<br /><strong>Found close to home.</strong></span></span>
+        <span className="canopy-note canopy-note-left">
+          <Sprout size={21} />
+          <span>
+            Grown with care.
+            <br />
+            <strong>Found close to home.</strong>
+          </span>
+        </span>
         <span className="canopy-note canopy-note-right"><span className="canopy-count">{markets.length}</span><span>neighbourhood markets.<br /><strong>So much to discover.</strong></span></span>
         <a className="tree-scroll" href="#market-branch"><span>FOLLOW THE ROOTS</span><ArrowDown size={16} /></a>
         <div className="tree-hero-foot"><span>THE FRESHFIND TREE</span><span>Every good thing starts somewhere.</span><span>01 — 03</span></div>

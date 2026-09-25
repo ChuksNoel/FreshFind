@@ -1,7 +1,7 @@
 .chat-launcher {
   position: fixed;
   right: 24px;
-  bottom: 24px;
+  bottom: 2cm;
   z-index: 1000;
   min-height: 50px;
   min-width: 50px;

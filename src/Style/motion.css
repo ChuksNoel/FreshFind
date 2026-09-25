@@ -1,0 +1,59 @@
+@keyframes floatIn {
+    from {
+        translate: 0 100%;
+        opacity: 0;
+    }
+    to {
+        translate: 0 0;
+        opacity: 1;
+    }
+}
+
+@keyframes fallBounce {
+  /* Letter starts ABOVE the text */
+  0% {
+    opacity: 0;
+    transform: translateY(-120px);
+  }
+
+  /* Falling downward */
+  45% {
+    opacity: 1;
+    transform: translateY(12px);
+  }
+
+  /* First bounce upward */
+  60% {
+    transform: translateY(-12px);
+  }
+
+  /* Falls down again */
+  72% {
+    transform: translateY(6px);
+  }
+
+  /* Small bounce */
+  84% {
+    transform: translateY(-4px);
+  }
+
+  /* Small fall */
+  92% {
+    transform: translateY(2px);
+  }
+
+  /* Settles */
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

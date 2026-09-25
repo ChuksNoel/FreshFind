@@ -3,7 +3,7 @@ import '../assets/CSS/home.css'
 import Tree from '../Components/Tree';
 import LandingPane from '../Components/LandingPane';
 
-function Home(){
+function Home1(){
     return(
       <React.Fragment>
         {/* <h1 style={{ backgroundColor: '#000', color: '#fff', padding: 20, border: '1px solid', borderRadius: 10 }}>This is the Home Page</h1>*/}
@@ -30,4 +30,4 @@ function Home(){
       </React.Fragment>
     )
 }
-export default Home;
+export default Home1;

@@ -10,6 +10,8 @@ import Markets from './pages/Markets';
 import MarketsDetails from './pages/MarketsDetails';
 import ProduceGuide from './pages/ProduceGuide';
 import Bookmarks from './Shared/Bookmarks';
+import Home1 from './pages/Home1';
+import Home2 from './pages/Home2';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -26,6 +28,8 @@ function App() {
         <main id="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/h" element={<Home1 />} />
+            <Route path="/h2" element={<Home2 />} />
             <Route path="/markets" element={<Markets />} />
             <Route path="/markets/:id" element={<MarketsDetails />} />
             <Route path="/produce-guide" element={<ProduceGuide />} />
