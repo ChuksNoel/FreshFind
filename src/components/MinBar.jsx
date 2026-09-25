@@ -1,4 +1,3 @@
-import React from "react";
 import "../Style/MinBar.css";
 
 function MinBar() {
