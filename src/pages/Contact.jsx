@@ -71,7 +71,7 @@ export default function Contact() {
         <span className="eyebrow">
           <Sprout size={15} /> A LITTLE CONVERSATION GOES A LONG WAY
         </span>
-        <h1 id="contact-title">
+        <h1 id="contact-title" aria-label="Let's grow something good">
           {Spanify("Let's")} {Spanify("grow")}<br /><em>{Spanify("something")} {Spanify("good.")}</em>
         </h1>
         <p>A question, a suggestion, or a fresh find of your own.<br />We’d love to hear what’s on your mind.</p></section>

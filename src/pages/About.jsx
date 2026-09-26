@@ -12,7 +12,7 @@ export default function About() {
       <section className="about-intro container" aria-labelledby="about-title">
         <div className="about-intro-copy">
           <span className="eyebrow"><Sprout size={15} /> THE STORY BEHIND FRESHFIND</span>
-          <h1 id="about-title">
+          <h1 id="about-title" aria-label="Good food has a local story">
             {Spanify("Good")} {Spanify("food")} {Spanify("has")}<br /><em>{Spanify("a")} {Spanify("local")} {Spanify("story.")}</em>
           </h1>
           <p>Ours starts in Lagos. At the market stalls, with the people who sell our everyday ingredients, and the little discoveries that make a shopping trip worthwhile.</p>

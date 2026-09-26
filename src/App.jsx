@@ -14,6 +14,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Spanify from './Components/Spanify';
 
 
 function ScrollToTop() {
@@ -40,7 +41,13 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signin" element={<Navigate to="/login" replace />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="*" element={<div className="container empty-page"><h1>Page not found</h1><Link to="/" className="button button-primary">Back to home</Link></div>} />
+            <Route path="*" element={<div className="container empty-page">
+              <h1 aria-label='Page not found'>
+                {Spanify("Page")} {Spanify("not")} {Spanify("found")}
+              </h1>
+              <Link to="/" className="button button-primary">Back to home</Link>
+              </div>
+            } />
           </Routes>
         </main>
         <Footer />

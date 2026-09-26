@@ -22,7 +22,7 @@ export default function MarketsDetails() {
           </Link>
           <span className={`status-badge ${isOpenNow(market) ? 'open' : 'closed'}`}>
             {isOpenNow(market) ? 'Open now' : 'Closed now'}</span>
-          <h1>{market.name.split("").map(substring => Spanify(substring))}</h1>
+          <h1 aria-label={market.name}>{market.name.split("").map(substring => Spanify(substring))}</h1>
           <p>
             <MapPin size={17} /> {market.address}</p>
           <div className="detail-hero-actions">

@@ -74,7 +74,7 @@ export default function Markets() {
     <div className="page-section container">
       <div className="page-intro">
         <span className="eyebrow">THE MARKET DIRECTORY</span>
-        <h1>
+        <h1 aria-label="Find your next fresh find.">
           {Spanify("Find")} {Spanify("your")} {Spanify("next")} {Spanify("fresh")} {Spanify("find.")}
         </h1>
         <p>Discover local markets across Lagos and see what is waiting for you there.</p>

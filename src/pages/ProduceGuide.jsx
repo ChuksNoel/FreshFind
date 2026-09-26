@@ -17,7 +17,9 @@ export default function ProduceGuide() {
       <section className="produce-hero">
         <div className="container produce-hero-inner">
           <span className="hero-kicker">THE FRESHFIND GUIDE</span>
-          <h1>{Spanify("Get")} {Spanify("to")} {Spanify("know")} {Spanify("what")} {Spanify("grows.")}</h1>
+          <h1 aria-label="Get to know what grows.">
+            {Spanify("Get")} {Spanify("to")} {Spanify("know")} {Spanify("what")} {Spanify("grows.")}
+            </h1>
           <p>A simple guide to fresh produce you can look for around Lagos, and when each item is at its best.</p>
         </div>
       </section>
@@ -25,7 +27,9 @@ export default function ProduceGuide() {
         <div className="section-heading">
           <div>
             <span className="eyebrow">EXPLORE PRODUCE</span>
-            <h2>{Spanify("From")} {Spanify("the")} {Spanify("market")} {Spanify("to")} {Spanify("your")} {Spanify("table")}</h2>
+            <h2 aria-label="From the market to your table">
+              {Spanify("From")} {Spanify("the")} {Spanify("market")} {Spanify("to")} {Spanify("your")} {Spanify("table")}
+              </h2>
             <p>Find familiar favorites and discover something new.</p>
           </div>
         </div>

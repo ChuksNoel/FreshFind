@@ -20,7 +20,7 @@ export default function Bookmarks() {
         <Heart size={14} />
         YOUR COLLECTION
       </span>
-      <h1>
+      <h1 aria-label="Saved for later.">
         {Spanify("Saved")} {Spanify("for")} {Spanify("later.")}
       </h1>
       <p>

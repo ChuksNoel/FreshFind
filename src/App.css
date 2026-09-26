@@ -1434,6 +1434,17 @@
 
 .empty-page h1 {
   font: 400 48px var(--display);
+
+  span {
+    display: inline-block;
+    opacity: 0;
+    animation: fallBounce .6s ease-in calc(sibling-index() * .1s) forwards;
+  }
+
+  + a {
+    opacity: 0;
+    animation: fadeIn .6s ease-in 1s forwards;
+  }
 }
 
 /* Footer */

@@ -108,10 +108,8 @@ export default function Home() {
             ROOTED IN LAGOS. GROWING CLOSER.
           </span>
 
-          <h1 id="tree-title">
-            {Spanify('Fresh')} {Spanify('Find.')}
-            <br />
-            {Spanify('Deep')} {Spanify('Roots.')}</h1>
+          <h1 id="tree-title" aria-label="Fresh Find. Deep Roots.">
+            {Spanify('Fresh')} {Spanify('Find.')}<br />{Spanify('Deep')} {Spanify('Roots.')}</h1>
           <p>
             Follow the branches to good food, local markets,
             <br className="tree-desktop-break" />
