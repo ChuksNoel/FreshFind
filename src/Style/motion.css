@@ -16,7 +16,6 @@
     to {
         translate: 0 0;
         opacity: 1;
-        --delay: calc(sibling-index() * .2s);
     }
 }
 

@@ -616,12 +616,7 @@
   overflow: hidden;
   transition: box-shadow .25s, transform .25s;
   opacity: 0;
-  --delay: calc(sibling-index() * .2s + 1.4s);
-  animation-name: cardFloatIn;
-  animation-duration: .32s;
-  animation-timing-function: ease-in;
-  animation-delay: var(--delay);
-  animation-fill-mode: both;
+  animation: cardFloatIn .32s ease-in calc(sibling-index() * .2s + 1.4s) both;
 }
 
 .market-card:hover {
@@ -877,12 +872,7 @@
   overflow: hidden;
   transition: transform .2s, box-shadow .2s;
   opacity: 0;
-  --delay: calc(sibling-index() * .32s + 1.4s);
-  animation-name: cardFloatIn;
-  animation-duration: .32s;
-  animation-timing-function: ease-in;
-  animation-delay: var(--delay);
-  animation-fill-mode: both;
+  animation: cardFloatIn .32s ease-in calc(sibling-index() * .32s + 1.4s) both;
 }
 
 .produce-card:hover {
@@ -1114,6 +1104,9 @@
   flex-direction: column;
   text-align: center;
   color: var(--green);
+
+  opacity: 0;
+  animation: cardFloatIn .32s ease-in 1.5s both;
 }
 
 .empty-state h2 {
@@ -1383,6 +1376,8 @@
   gap: 22px;
   border-bottom: 1px solid var(--line);
   margin: 35px 0 8px;
+
+  animation: fadeIn .2s ease-in .8s both;
 }
 
 .saved-tabs button {
@@ -1396,6 +1391,8 @@
   background: none;
   color: #7b856f;
   font-size: 13px;
+
+  animation: fadeIn .24s ease-in calc(sibling-index() * .3s + 1s) both;
 }
 
 .saved-tabs button.active {

@@ -32,6 +32,12 @@
    gap: 75px;
    align-items: center;
    padding-block: 65px 75px;
+
+   .button-primary {
+       display: inline-block;
+       opacity: 0;
+       animation: fadeIn .6s ease 1.2s both;
+   }
 }
 .about-intro h1 span {
     display: inline-block;
@@ -88,7 +94,11 @@
     animation-delay: calc(sibling-index() * .05s + .55s)
 }
 .contact-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 65px; padding-bottom: 65px; }
-.contact-aside { padding: 28px 5px 0 0; }
+.contact-aside {
+    padding: 28px 5px 0 0;
+    opacity: 0;
+    animation: cardFloatIn .6s ease-in .9s both;
+}
 .contact-aside h2 { font-size: 32px; margin-top: 25px; }
 .contact-aside>p { max-width: 365px; font-size: 13px; }
 .contact-channel { display: flex; gap: 14px; align-items: start; margin-top: 24px; color: var(--green); }
@@ -100,9 +110,21 @@
 .contact-aside .contact-availability { font-size: 12px; border-left: 2px solid #c1ccb0; padding-left: 16px; margin: 27px 0; }
 .contact-help { margin-top: 35px; padding: 24px; background: #edf1e4; border-radius: 10px 35px 10px 10px; }
 .contact-help h3 { font-size: 23px; margin: 15px 0 8px; }
-.contact-help p { font-size: 12px; margin: 0 0 12px; }
-.contact-help .text-link { font-size: 12px; }
-.contact-form { background: #fffefa; padding: 36px; border: 1px solid var(--line); border-radius: 12px 45px 12px 12px; box-shadow: 0 12px 35px #294e3010; }
+.contact-help p {
+    font-size: 12px;
+    margin: 0 0 12px;
+}
+.contact-help .text-link {
+    font-size: 12px;
+}
+.contact-form {
+    background: #fffefa;
+    padding: 36px; border: 1px solid var(--line);
+    border-radius: 12px 45px 12px 12px;
+    box-shadow: 0 12px 35px #294e3010;
+    opacity: 0;
+    animation: cardFloatIn .6s ease-in 1.2s both;
+}
 .contact-form h2 { font-size: 32px; margin: 12px 0 25px; }
 .contact-form label { display: flex; flex-direction: column; gap: 9px; font-size: 12px; font-weight: 600; margin-bottom: 20px; min-width: 0; }
 .contact-form :is(input,select,textarea) { width: 100%; min-width: 0; border: 1px solid #dce1d2; border-radius: 6px; background: #fafbf5; color: var(--ink); padding: 13px; font: 13px/1.5 'DM Sans',sans-serif; }
@@ -163,43 +185,43 @@
   .about-how { padding-block: 40px; }
   .about-team { padding-block: 35px 40px; }
   .about-team-grid { grid-template-columns: 1fr; gap: 18px; }
-  .info-invitation { 
+  .info-invitation {
     padding: 30px 25px;
      align-items: start;
-      flex-direction: column; 
+      flex-direction: column;
       gap: 23px; }
   .contact-intro {
      padding-block: 40px 25px;
      }
   .contact-intro .eyebrow {
-     font-size: 8px; 
+     font-size: 8px;
      letter-spacing: .1em;
      }
-  .contact-layout { 
-    gap: 28px; 
-    padding-bottom: 40px; 
+  .contact-layout {
+    gap: 28px;
+    padding-bottom: 40px;
   }
   .contact-aside {
      padding-top: 10px;
      }
   .contact-aside>p {
-     max-width: none; 
+     max-width: none;
     }
   .contact-help {
      margin-top: 23px;
      }
   .contact-map-heading, .contact-map-foot {
-     flex-direction: column; 
+     flex-direction: column;
      align-items: start;
-      gap: 18px; 
+      gap: 18px;
     }
-  .contact-map-section iframe { 
+  .contact-map-section iframe {
     height: 300px;
    }
   .contact-map-section {
      padding-bottom: 30px;
      }
   .contact-faq {
-     gap: 12px; 
+     gap: 12px;
     }
 }

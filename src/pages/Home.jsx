@@ -6,6 +6,7 @@ import produce from '../JSON/produce.json';
 import ProduceCard from '../components/ProduceCard';
 import { marketImage } from '../utils/market';
 import '../Style/TreeHome.css';
+import Spanify from '../Components/Spanify';
 
 // Home1's canopy → hanging panes → roots outline, with a shared scroll-driven axis.
 function useTreeMotion(root, enabled) {
@@ -55,10 +56,6 @@ function useTreeMotion(root, enabled) {
       observer.disconnect();
     };
   }, [root, enabled]);
-}
-
-function Spanify(text) {
-  return text;
 }
 
 function TreeSpine() {

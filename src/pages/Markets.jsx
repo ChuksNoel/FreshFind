@@ -6,10 +6,7 @@ import MarketCard from '../components/MarketCard';
 import { isOpenToday } from '../utils/market';
 import { useClock } from '../context/ClockContext';
 import { useHydrated } from '../utils/useHydrated';
-
-function Spanify(text) {
-  return text;
-}
+import Spanify from '../Components/Spanify';
 
 export default function Markets() {
   const now = useClock();

@@ -1,17 +1,17 @@
 /* Immediate, readable content; the scroll-driven tree rotation is preserved. */
-.site-header {
+/*.site-header {
   animation: none;
   transform: none;
   background: #faf8f2;
   backdrop-filter: none;
   color: var(--ink);
-}
-:is(h1, h2, h3) span,
+}*/
+/*:is(h1, h2, h3) span,
 .tree-canopy, .tree-search, .tree-search input, .tree-scroll, .canopy-note,
 .filter-pill, .directory-toolbar, .market-card, .produce-card, .detail-hero-actions {
   animation: none !important;
   opacity: 1 !important;
-}
+}*/
 .tree-chapter { scroll-margin-top: 110px; }
 [id] { scroll-margin-top: 100px; }
 .tree-home :is(a, button):focus-visible, :focus-visible {
