@@ -5,7 +5,7 @@
   --mint: #e7ede2;
   --cream: #faf8f2;
   --ink: #243c30;
-  --muted: #697369;
+  --muted: #596653;
   --line: #dedfd4;
   --gold: #c7a767;
   --display: 'DM Serif Display', Georgia, serif;
@@ -846,7 +846,7 @@
 
 .seasonal-banner-image {
   position: relative;
-  background: url('/images/seasonal-produce.png') center/cover;
+  background: url('/images/optimized/seasonal-produce-960.webp') center/cover;
 }
 
 .photo-label {
@@ -1340,7 +1340,7 @@
 }
 
 .produce-hero {
-  background: linear-gradient(90deg, #173b2ddb, #173b2d22), url('/images/seasonal-produce.webp') center/cover;
+  background: linear-gradient(90deg, #173b2deb, #173b2dbb), url('/images/optimized/seasonal-produce-960.webp') center/cover;
   min-height: 355px;
   color: white;
   display: flex;
@@ -1416,7 +1416,7 @@
 
 .saved-promo {
   min-height: 250px;
-  background: linear-gradient(90deg, #163b2cf2, #163b2caa), url('/images/seasonal-produce.webp') center/cover;
+  background: linear-gradient(90deg, #163b2cf2, #163b2caa), url('/images/optimized/seasonal-produce-960.webp') center/cover;
 }
 
 .saved-promo h2 {
@@ -1478,7 +1478,7 @@
   margin: 0;
 }
 
-.footer-grid h3 {
+.footer-grid h2 {
   color: #5f7052;
   font-size: 10px;
   letter-spacing: .14em;

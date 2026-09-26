@@ -1,0 +1,71 @@
+/* Immediate, readable content; the scroll-driven tree rotation is preserved. */
+.site-header {
+  animation: none;
+  transform: none;
+  background: #faf8f2;
+  backdrop-filter: none;
+  color: var(--ink);
+}
+:is(h1, h2, h3) span,
+.tree-canopy, .tree-search, .tree-search input, .tree-scroll, .canopy-note,
+.filter-pill, .directory-toolbar, .market-card, .produce-card, .detail-hero-actions {
+  animation: none !important;
+  opacity: 1 !important;
+}
+.tree-chapter { scroll-margin-top: 110px; }
+[id] { scroll-margin-top: 100px; }
+.tree-home :is(a, button):focus-visible, :focus-visible {
+  outline: 3px solid #244f3c;
+  outline-offset: 4px;
+}
+.button-primary:focus-visible, .soil-footer a:focus-visible { outline-color: #bd7e09; }
+/* Secondary text must remain readable on the cream palette. */
+.brand-copy small, .nav-link, .footer-grid p, .footer-grid a:not(.brand), .footer-bottom,
+.season-tag, .card-meta, .card-eyebrow, .card-tags span, .tree-location, .tree-journey-tools,
+.branch-market small, .branch-market>span>span, .saved-tabs button,
+.schedule-card p, .auth-demo-note p, .auth-guest>span { color: #526348; }
+.soil-footer .brand-copy small, .soil-footer .footer-grid p,
+.soil-footer .footer-grid a:not(.brand), .soil-footer .footer-bottom { color: #d8d4c3; }
+.tree-home h2 em, .auth-panel h1 em { color: #5c7143; }
+.eyebrow:not(.light), .about-location, .about-steps>a>span, .produce-tip p { color: #526348; }
+.detail-produce-list span, .produce-tip .eyebrow { color: #526348; }
+.hero-search input::placeholder, input::placeholder, textarea::placeholder { color: #5b6952; opacity: 1; }
+.auth-field input, .contact-form :is(input, select, textarea), .search-field input { font-family: inherit; }
+.icon-link, .menu-toggle, .save-button, .branch-produce-grid .save-button,
+.produce-card .save-button, .auth-password button { min-width: 44px; min-height: 44px; }
+.auth-password input { padding-right: 54px; }
+.auth-password button { top: 1px; right: 1px; }
+.filter-pill, .header-signin, .text-link { min-height: 44px; }
+.footer-grid a:not(.brand) { padding-block: 8px; margin-bottom: 2px; }
+.directory-toolbar>button, .sort-direction {
+  display: grid; place-items: center; min-width: 44px; min-height: 44px;
+  border: 1px solid var(--line); background: var(--cream); color: var(--green); border-radius: 6px;
+}
+.map-placeholder {
+  min-height: 360px; border: 1px solid var(--line); border-radius: 12px;
+  background: #eaf0e1; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center; padding: 30px; color: var(--green);
+}
+.map-placeholder h3 { font-size: 28px; margin: 15px 0 0; }
+.map-placeholder p { max-width: 360px; }
+.detail-hero { background-image: linear-gradient(90deg, rgba(6,36,28,.92), rgba(6,36,28,.72)), var(--market-photo); }
+.produce-hero { background-image: linear-gradient(90deg, #173b2deb, #173b2dbb), image-set(url('/images/optimized/seasonal-produce-960.avif') type('image/avif'), url('/images/optimized/seasonal-produce-960.webp') type('image/webp')); }
+@media (max-width: 760px) {
+  /* Skip off-screen tree layout until it nears the viewport; content stays accessible. */
+  .tree-journey { content-visibility: auto; contain-intrinsic-size: auto 1900px; }
+  .tree-roots { content-visibility: auto; contain-intrinsic-size: auto 760px; }
+  .detail-hero { background-image: linear-gradient(90deg, rgba(6,36,28,.92), rgba(6,36,28,.72)), var(--market-photo-mobile); }
+  .produce-hero { background-image: linear-gradient(90deg, #173b2deb, #173b2dbb), image-set(url('/images/optimized/seasonal-produce-480.avif') type('image/avif'), url('/images/optimized/seasonal-produce-480.webp') type('image/webp')); }
+  .hero-search input, .search-field input, .auth-field input,
+  .contact-form :is(input, textarea, select) { font-size: 16px; }
+  .header-actions .icon-link { display: none; }
+  .header-signin { padding-inline: 12px; }
+  .map-placeholder { min-height: 300px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

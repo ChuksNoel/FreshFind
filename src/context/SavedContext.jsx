@@ -1,35 +1,46 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useSyncExternalStore } from 'react';
 
 const SavedContext = createContext(null);
 const STORAGE_KEY = 'freshfind-saved';
+const emptySaved = { markets: [], produce: [] };
+let cachedRaw;
+let cachedSaved = emptySaved;
+let memoryOnly = false;
 
 function initialSaved() {
+  if (typeof window === 'undefined') return emptySaved;
+  if (memoryOnly) return cachedSaved;
   try {
-    const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    return {
+    const raw = localStorage.getItem(STORAGE_KEY) || '{}';
+    if (raw === cachedRaw) return cachedSaved;
+    const value = JSON.parse(raw);
+    cachedRaw = raw;
+    cachedSaved = {
       markets: Array.isArray(value.markets) ? value.markets : [],
       produce: Array.isArray(value.produce) ? value.produce : [],
     };
+    return cachedSaved;
   } catch {
-    return { markets: [], produce: [] };
+    return cachedSaved;
   }
 }
 
-export function SavedProvider({ children }) {
-  const [saved, setSaved] = useState(initialSaved);
+function subscribe(callback) {
+  window.addEventListener('storage', callback);
+  window.addEventListener('freshfind-saved-change', callback);
+  return () => { window.removeEventListener('storage', callback); window.removeEventListener('freshfind-saved-change', callback); };
+}
 
-  useEffect(() => {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch { /* Storage may be unavailable. */ }
-  }, [saved]);
+export function SavedProvider({ children }) {
+  const saved = useSyncExternalStore(subscribe, initialSaved, () => emptySaved);
 
   function toggleSaved(type, id) {
-    setSaved((current) => {
-      const ids = current[type];
-      return {
-        ...current,
-        [type]: ids.includes(id) ? ids.filter((item) => item !== id) : [...ids, id],
-      };
-    });
+    const current = initialSaved();
+    const ids = current[type];
+    cachedSaved = { ...current, [type]: ids.includes(id) ? ids.filter(item => item !== id) : [...ids, id] };
+    cachedRaw = JSON.stringify(cachedSaved);
+    try { localStorage.setItem(STORAGE_KEY, cachedRaw); } catch { memoryOnly = true; }
+    window.dispatchEvent(new Event('freshfind-saved-change'));
   }
 
   return <SavedContext.Provider value={{ saved, toggleSaved }}>{children}</SavedContext.Provider>;

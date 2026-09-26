@@ -19,6 +19,7 @@ export default function Contact() {
   const [locationStatus, setLocationStatus] = useState('');
   const [locating, setLocating] = useState(false);
   const [draft, setDraft] = useState('');
+  const [mapLoaded, setMapLoaded] = useState(false);
   const draftRef = useRef(null);
   const mapQuery = location ? `${location.latitude},${location.longitude}` : 'Lagos,Nigeria';
   const mapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}`;
@@ -57,6 +58,7 @@ export default function Contact() {
     setLocationStatus('Waiting for your browser’s location permission…');
     navigator.geolocation.getCurrentPosition(({ coords }) => {
       setLocation({ latitude: coords.latitude, longitude: coords.longitude });
+      setMapLoaded(true);
       setLocating(false);
       setLocationStatus('The map now shows your approximate location.');
     }, (error) => {
@@ -98,7 +100,7 @@ export default function Contact() {
 
       <section className="contact-map-section container" aria-labelledby="map-title">
         <div className="contact-map-heading"><div><span className="eyebrow">ROOTED IN LAGOS</span><h2 id="map-title">Find your bearings.</h2><p>This map shows the city we’re exploring, rather than an office address.</p></div><button type="button" className="button contact-location-button" onClick={locate} disabled={locating}><Navigation size={16} />{locating ? 'Finding your location…' : 'Use my location'}</button></div>
-        <iframe title={location ? 'Map of your approximate location' : 'Map of Lagos, Nigeria'} src={`${mapsUrl}&z=${location ? 14 : 11}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+        {mapLoaded ? <iframe title={location ? 'Map of your approximate location' : 'Map of Lagos, Nigeria'} src={`${mapsUrl}&z=${location ? 14 : 11}&output=embed`} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen /> : <div className="map-placeholder"><MapPin size={35} aria-hidden="true" /><h3>Lagos, Nigeria</h3><p>Load the interactive map from Google Maps when you need it.</p><button type="button" className="button button-primary" onClick={() => setMapLoaded(true)}>Load Lagos map</button></div>}
         <div className="contact-map-foot"><p>Your browser asks permission before using your location. Coordinates are shared with Google Maps to display the map; FreshFind does not store them.</p><a className="text-link" href={mapsUrl} target="_blank" rel="noreferrer">Open Google Maps <ArrowUpRight size={15} /></a></div>
         <p role="status" className="contact-status">{locationStatus}</p>
         {location && <button type="button" className="text-link" onClick={() => { setLocation(null); setLocationStatus('Showing the Lagos map again.'); }}>Back to the Lagos map</button>}

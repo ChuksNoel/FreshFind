@@ -20,7 +20,7 @@ export default function About() {
           <span className="about-location"><MapPin size={14} /> Made for discovering Lagos</span>
         </div>
         <div className="about-photo">
-          <img src="/images/lagos-market-hero.webp" alt="A shopper choosing vegetables from a stall at a Lagos market" width="1024" height="1024" fetchPriority="high" />
+          <img src="/images/optimized/lagos-market-hero-960.webp" srcSet="/images/optimized/lagos-market-hero-480.webp 480w, /images/optimized/lagos-market-hero-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 36px), 50vw" alt="A shopper choosing vegetables from a stall at a Lagos market" width="1024" height="1024" fetchPriority="high" />
           <div className="about-photo-note"><Leaf size={24} strokeWidth={1.4} /><span>Closer to the market.<br /><strong>Closer to what matters.</strong></span></div>
         </div>
       </section>

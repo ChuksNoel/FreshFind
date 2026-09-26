@@ -50,7 +50,7 @@ export default function ChatBot() {
         type="button"
         className="chat-launcher"
         onClick={() => open ? closeChat() : setOpen(true)}
-        aria-label={open ? 'Close chat' : 'Open chat'}
+        aria-label={open ? 'Close chat' : 'Ask FreshFind — open chat'}
         aria-expanded={open}
         aria-controls={open ? 'freshfind-chat' : undefined}
       >

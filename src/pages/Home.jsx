@@ -6,8 +6,6 @@ import produce from '../JSON/produce.json';
 import ProduceCard from '../components/ProduceCard';
 import { marketImage } from '../utils/market';
 import '../Style/TreeHome.css';
-import treestump from '../assets/Images/LandingTree/stump2.webp';
-import treetop from '../assets/Images/LandingTree/Treetop.webp';
 
 // Home1's canopy → hanging panes → roots outline, with a shared scroll-driven axis.
 function useTreeMotion(root, enabled) {
@@ -21,6 +19,11 @@ function useTreeMotion(root, enabled) {
     function paint() {
       frame = 0;
       const still = !enabled || preference.matches || compact.matches;
+      if (still) {
+        element.style.setProperty('--tree-turn', '0deg');
+        sections.forEach(section => section.style.setProperty('--branch-turn', '0deg'));
+        return;
+      }
       const viewportCenter = window.innerHeight / 2;
       const top = journey.getBoundingClientRect().top;
       const turn = (viewportCenter - top) * 0.065;
@@ -55,7 +58,7 @@ function useTreeMotion(root, enabled) {
 }
 
 function Spanify(text) {
-  return text.split('').map((char, index) => <span key={index} className='hero-bounce'>{char}</span>);
+  return text;
 }
 
 function TreeSpine() {
@@ -115,16 +118,16 @@ export default function Home() {
             <br className="tree-desktop-break" />
             and a little more connection to where it all begins.
           </p>
-          <form className="hero-search tree-search" onSubmit={handleSearch}>
+          <form className="hero-search tree-search" role="search" action="/markets" method="get" onSubmit={handleSearch}>
             <Search size={20} aria-hidden="true" />
-            <input aria-label="Search markets or produce" placeholder="A neighbourhood, a market, a fresh craving…" value={search} onChange={(event) => setSearch(event.target.value)} />
+            <input name="q" aria-label="Search markets or produce" placeholder="A neighbourhood, a market, a fresh craving…" value={search} onChange={(event) => setSearch(event.target.value)} />
             <button type="submit" aria-label="Find markets">
               <ArrowUpRight size={21} />
             </button>
           </form>
           <span className="tree-location"><MapPin size={13} /> A little closer to the fresh side of Lagos</span>
         </div>
-        <img className="tree-canopy" src={treetop} alt="" width="1536" height="1024" fetchPriority="high" />
+        <picture><source type="image/avif" media="(max-width: 760px)" srcSet="/images/optimized/canopy-640.avif" /><source type="image/avif" srcSet="/images/optimized/canopy-1120.avif" /><source media="(max-width: 760px)" srcSet="/images/optimized/canopy-640.webp" /><img className="tree-canopy" src="/images/optimized/canopy-1120.webp" alt="" width="1536" height="1024" fetchPriority="high" /></picture>
         <span className="canopy-note canopy-note-left">
           <Sprout size={21} />
           <span>
@@ -151,7 +154,7 @@ export default function Home() {
           <div className="branch-market-list">
             {markets.slice(0, 2).map((market) => (
               <Link key={market.id} to={`/markets/${market.id}`} className="branch-market">
-                <img src={marketImage(market)} alt="Fresh produce at a Lagos market" loading="lazy" width="100" height="100" />
+                <img src={marketImage(market, 160)} alt="Fresh produce at a Lagos market" loading="lazy" width="100" height="100" />
                 <span><small><MapPin size={11} />{market.area}, Lagos</small><strong>{market.name}</strong><span>Discover this market</span></span>
                 <ArrowUpRight size={18} />
               </Link>
@@ -168,7 +171,7 @@ export default function Home() {
         </TreeChapter>
 
         <TreeChapter id="saved-branch" number="03" title="YOUR OWN LITTLE BRANCH" note={<>Keep what you love.<br />Come back for more.</>}>
-          <div className="branch-saved-photo"><img src="/images/seasonal-produce.png" alt="Yam, peppers, tomatoes and leafy greens gathered on a table" loading="lazy" width="800" height="450" /><span><Heart size={17} /> A basket full of possibilities</span></div>
+          <div className="branch-saved-photo"><img src="/images/optimized/seasonal-produce-480.webp" alt="Yam, peppers, tomatoes and leafy greens gathered on a table" loading="lazy" width="800" height="450" /><span><Heart size={17} /> A basket full of possibilities</span></div>
           <h2 id="saved-branch-title">Let your favourites<br /><em>take root.</em></h2>
           <p>That market you loved. The produce you want to try. Keep your good finds together for the next trip.</p>
           <Link to="/saved" className="button button-primary">My saved finds <ArrowUpRight size={17} /></Link>
@@ -177,7 +180,7 @@ export default function Home() {
 
       <section className="tree-roots" aria-labelledby="roots-title">
         <div className="roots-copy"><span className="eyebrow">FRESH ALL ALONG</span><h2 id="roots-title">It all comes back<br />to <em>our roots.</em></h2><p>Good food connects us.<br />To the earth. To our neighbours. To home.</p><Link to="/markets" className="text-link">Find your fresh start <ArrowUpRight size={17} /></Link></div>
-        <img src={treestump} alt="The tree’s moss-covered stump and spreading roots reaching into the earth" className="roots-art" loading="lazy" width="1536" height="1024" />
+        <img src="/images/optimized/roots-760.webp" alt="The tree’s moss-covered stump and spreading roots reaching into the earth" className="roots-art" loading="lazy" width="1536" height="1024" />
         <div className="roots-signoff"><Sprout size={25} strokeWidth={1.3} /><span>ROOTED IN COMMUNITY.<br />FRESH ALL ALONG.</span></div>
         <div className="earth-edge" aria-hidden="true" />
       </section>

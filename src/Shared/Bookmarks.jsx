@@ -28,11 +28,11 @@ export default function Bookmarks() {
       </p>
     </div>
 
-    <div className="saved-tabs" role="tablist" aria-label="Saved items">
-      <button role="tab" aria-selected={tab === 'markets'} className={tab === 'markets' ? 'active' : ''} onClick={() => setTab('markets')}>
+    <div className="saved-tabs" role="group" aria-label="Choose saved item type">
+      <button type="button" aria-pressed={tab === 'markets'} className={tab === 'markets' ? 'active' : ''} onClick={() => setTab('markets')}>
         <MapPin size={18} /> Markets <span>{savedMarkets.length}</span>
       </button>
-      <button role="tab" aria-selected={tab === 'produce'} className={tab === 'produce' ? 'active' : ''} onClick={() => setTab('produce')}>
+      <button type="button" aria-pressed={tab === 'produce'} className={tab === 'produce' ? 'active' : ''} onClick={() => setTab('produce')}>
         <Sprout size={18} /> Produce <span>{savedProduce.length}</span>
       </button>
     </div>

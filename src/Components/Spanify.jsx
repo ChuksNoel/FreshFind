@@ -1,3 +1,4 @@
 export default function Spanify(text) {
-  return text.split('').map((char, index) => <span key={index}>{char}</span>);
+  // Keep words as real text: fewer layout nodes and natural screen-reader output.
+  return text;
 }

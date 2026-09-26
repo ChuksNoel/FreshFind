@@ -3,12 +3,13 @@ import { Search, Sprout } from 'lucide-react';
 import produce from '../JSON/produce.json';
 import ProduceCard from '../components/ProduceCard';
 import Spanify from '../Components/Spanify';
+import { useClock } from '../context/ClockContext';
 
 export default function ProduceGuide() {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('All produce');
   const [seasonOnly, setSeasonOnly] = useState(false);
-  const month = new Intl.DateTimeFormat('en-US', { month: 'long', timeZone: 'Africa/Lagos' }).format(new Date());
+  const month = new Intl.DateTimeFormat('en-US', { month: 'long', timeZone: 'Africa/Lagos' }).format(useClock());
   const categories = ['All produce', ...new Set(produce.map((item) => item.category))];
   const filtered = produce.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()) && (category === 'All produce' || item.category === category) && (!seasonOnly || item.season.includes(month)));
 
@@ -47,9 +48,9 @@ export default function ProduceGuide() {
           </label>
         </div>
         <div className="filter-row">
-          <button type="button" className={`filter-pill ${!seasonOnly ? 'active' : ''}`} onClick={() => setSeasonOnly(false)}>All produce</button>
-          <button type="button" className={`filter-pill ${seasonOnly ? 'active' : ''}`} onClick={() => setSeasonOnly(true)}>In season this {month}</button>
-          <span className="result-count">{filtered.length} {filtered.length === 1 ? 'item' : 'items'}</span>
+          <button type="button" aria-pressed={!seasonOnly} className={`filter-pill ${!seasonOnly ? 'active' : ''}`} onClick={() => setSeasonOnly(false)}>All produce</button>
+          <button type="button" aria-pressed={seasonOnly} className={`filter-pill ${seasonOnly ? 'active' : ''}`} onClick={() => setSeasonOnly(true)}>In season this {month}</button>
+          <span className="result-count" role="status">{filtered.length} {filtered.length === 1 ? 'item' : 'items'}</span>
         </div>
         {filtered.length ?
           <div className="produce-grid guide-grid">

@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Clock3, Heart, MapPin } from 'lucide-react';
 import { useSaved } from '../context/SavedContext';
+import { useClock } from '../context/ClockContext';
 import { formatTime, isOpenNow, marketImage } from '../utils/market';
 
 export default function MarketCard({ market }) {
   const { saved, toggleSaved } = useSaved();
   const isSaved = saved.markets.includes(market.id);
-  const open = isOpenNow(market);
+  const open = isOpenNow(market, useClock());
 
   return (
     <article className="market-card">
       <div className="market-card-image-wrap">
         <Link className="market-card-image-link" to={`/markets/${market.id}`} aria-label={`Explore ${market.name}`}>
-        <img src={marketImage(market)} alt={`Fresh produce at a Lagos market`} className="market-card-image" loading="lazy" />
+        <img src={marketImage(market)} alt="Fresh produce at a Lagos market" className="market-card-image" loading="lazy" decoding="async" width="480" height="480" />
         </Link>
         <span className={`status-badge ${open ? 'open' : 'closed'}`}>{open ? 'Open now' : 'Closed now'}</span>
         <button type="button" className={`save-button ${isSaved ? 'is-saved' : ''}`} onClick={() => toggleSaved('markets', market.id)} aria-label={`${isSaved ? 'Remove' : 'Save'} ${market.name}`} aria-pressed={isSaved}><Heart size={18} fill={isSaved ? 'currentColor' : 'none'} /></button>

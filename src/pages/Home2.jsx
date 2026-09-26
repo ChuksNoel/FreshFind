@@ -34,7 +34,7 @@ export default function Home2() {
           <div className="hero-footnote"><span><strong>{markets.length}</strong> local markets</span><span><strong>{produce.length}</strong> produce guides</span><Leaf size={20} /></div>
         </div>
         <div className="hero-visual">
-          <img src="/images/lagos-market-hero.png" alt="A shopper choosing fresh vegetables at a Lagos market" fetchPriority="high" />
+          <img src="/images/optimized/lagos-market-hero-960.webp" alt="A shopper choosing fresh vegetables at a Lagos market" fetchPriority="high" />
           <div className="hero-photo-caption"><span className="caption-icon"><ShoppingBasket size={22} /></span><span><strong>From the market, with love.</strong><small>Fresh all along. Right here in Lagos.</small></span></div>
           <div className="fresh-stamp" aria-hidden="true"><Sprout size={26} /><span>GROWN LOCAL<br />FOUND FRESH</span></div>
         </div>

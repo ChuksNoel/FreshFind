@@ -4,23 +4,27 @@ import { useSearchParams } from 'react-router-dom';
 import markets from '../JSON/markets.json';
 import MarketCard from '../components/MarketCard';
 import { isOpenToday } from '../utils/market';
+import { useClock } from '../context/ClockContext';
+import { useHydrated } from '../utils/useHydrated';
 
 function Spanify(text) {
-  return text.split('').map((char, index) => <span key={index} className='topic '>{char}</span>);
+  return text;
 }
 
 export default function Markets() {
+  const now = useClock();
   const [params, setParams] = useSearchParams();
   const [area, setArea] = useState('All areas');
   const [sort, setSort] = useState(0); // 0 for no sort, 1 for Market, 2 for Location, 3 for nearness to open
   const [order, setOrder] = useState(0); // 0 for Ascending, 1 for Descending
   const [openToday, setOpenToday] = useState(false);
-  const query = params.get('q') || '';
+  const hydrated = useHydrated();
+  const query = hydrated ? params.get('q') || '' : '';
   const areas = ['All areas', ...new Set(markets.map((market) => market.area))];
   let filtered = markets
     .filter((market) => {
       const matchesQuery = !query || [market.name, market.area, market.address, ...market.produce].some((value) => value.toLowerCase().includes(query.toLowerCase()));
-      return matchesQuery && (area === 'All areas' || market.area === area) && (!openToday || isOpenToday(market));
+      return matchesQuery && (area === 'All areas' || market.area === area) && (!openToday || isOpenToday(market, now));
     })
     .sort((market1, market2) => { // -1 if less, 0 if equal, 1 if greater
       if (sort == 0) // No Sort
@@ -33,7 +37,6 @@ export default function Markets() {
         return market1.area.localeCompare(market2.area);
 
       // Opening Soon
-      const now = new Date();
       const currentDay = now.toLocaleString("en-US", { weekday: "long" });
       const currentTime = now.toTimeString().slice(0, 5); // "HH:MM"
 
@@ -96,7 +99,7 @@ export default function Markets() {
         </label>
         <label className="select-field">
           {sort != 0 ?
-            <button onClick={() => setOrder(order => (order + 1) % 2)}>
+            <button type="button" className="sort-direction" aria-label={order ? 'Sort ascending' : 'Sort descending'} onClick={() => setOrder(order => (order + 1) % 2)}>
               {order ? <SortDesc /> : <SortAsc />}
             </button>
             :
@@ -111,13 +114,14 @@ export default function Markets() {
           </select>
         </label>
         {(sort != 0 || query != "" || area != 'All areas' || openToday ) &&
-          <button onClick={() => { setParams({}); setArea('All areas'); setOpenToday(false); setSort(0); setOrder(0); }}> <FilterX /> </button>}
+          <button type="button" aria-label="Clear all filters" onClick={() => { setParams({}); setArea('All areas'); setOpenToday(false); setSort(0); setOrder(0); }}> <FilterX /> </button>}
       </div>
       <div className="filter-row">
-        <button type="button" className={`filter-pill ${!openToday ? 'active' : ''}`} onClick={() => setOpenToday(false)}>All markets</button>
-        <button type="button" className={`filter-pill ${openToday ? 'active' : ''}`} onClick={() => setOpenToday(true)}>Open today</button>
-        <span className="result-count">{filtered.length} {filtered.length === 1 ? 'market' : 'markets'} found</span>
+        <button type="button" aria-pressed={!openToday} className={`filter-pill ${!openToday ? 'active' : ''}`} onClick={() => setOpenToday(false)}>All markets</button>
+        <button type="button" aria-pressed={openToday} className={`filter-pill ${openToday ? 'active' : ''}`} onClick={() => setOpenToday(true)}>Open today</button>
+        <span className="result-count" role="status">{filtered.length} {filtered.length === 1 ? 'market' : 'markets'} found</span>
       </div>
+      <h2 className="sr-only">Market search results</h2>
       {filtered.length ?
         <div className="market-grid directory-grid">
           {order == 0 ?

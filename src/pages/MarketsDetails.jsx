@@ -4,29 +4,31 @@ import markets from '../JSON/markets.json';
 import { useSaved } from '../context/SavedContext';
 import { formatTime, isOpenNow, marketImage } from '../utils/market';
 import Spanify from '../Components/Spanify';
+import { useClock } from '../context/ClockContext';
 
 export default function MarketsDetails() {
   const { id } = useParams();
   const market = markets.find((item) => String(item.id) === id);
   const { saved, toggleSaved } = useSaved();
+  const now = useClock();
   if (!market) return <div className="container empty-page"><h1>Market not found</h1><Link className="button button-primary" to="/markets">Browse markets</Link></div>;
   const isSaved = saved.markets.includes(market.id);
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${market.latitude},${market.longitude}`;
 
   return (
     <>
-      <section className="detail-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(6, 36, 28, .88), rgba(6, 36, 28, .2)), url(${marketImage(market)})` }}>
+      <section className="detail-hero" style={{ '--market-photo': `url(${marketImage(market, 960)})`, '--market-photo-mobile': `url(${marketImage(market, 480)})` }}>
         <div className="container detail-hero-inner">
           <Link to="/markets" className="back-link">
             <ArrowLeft size={17} /> Back to markets
           </Link>
-          <span className={`status-badge ${isOpenNow(market) ? 'open' : 'closed'}`}>
-            {isOpenNow(market) ? 'Open now' : 'Closed now'}</span>
-          <h1 aria-label={market.name}>{market.name.split("").map(substring => Spanify(substring))}</h1>
+          <span className={`status-badge ${isOpenNow(market, now) ? 'open' : 'closed'}`}>
+            {isOpenNow(market, now) ? 'Open now' : 'Closed now'}</span>
+          <h1 aria-label={market.name}>{Spanify(market.name)}</h1>
           <p>
             <MapPin size={17} /> {market.address}</p>
           <div className="detail-hero-actions">
-            <button type="button" className={`button button-light ${isSaved ? 'saved' : ''}`} onClick={() => toggleSaved('markets', market.id)}>
+            <button type="button" aria-pressed={isSaved} className={`button button-light ${isSaved ? 'saved' : ''}`} onClick={() => toggleSaved('markets', market.id)}>
               <Heart size={18} fill={isSaved ? 'currentColor' : 'none'} /> {isSaved ? 'Saved' : 'Save market'}</button>
             <a className="button button-primary" href={mapsUrl} target="_blank" rel="noreferrer">
               <Navigation size={17} /> Get directions

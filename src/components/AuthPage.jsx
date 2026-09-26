@@ -39,7 +39,7 @@ export default function AuthPage({ mode }) {
   return (
     <div className="auth-page container">
       <section className="auth-story" aria-label="FreshFind community">
-        <img src="/images/lagos-market-hero.webp" alt="Fresh vegetables and friendly faces at a Lagos market" width="1024" height="1024" />
+        <img src="/images/optimized/lagos-market-hero-960.webp" srcSet="/images/optimized/lagos-market-hero-480.webp 480w, /images/optimized/lagos-market-hero-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 36px), 50vw" alt="Fresh vegetables and friendly faces at a Lagos market" width="1024" height="1024" fetchPriority="high" />
         <div className="auth-story-overlay" />
         <Link to="/" className="auth-back"><ArrowLeft size={16} /> Back to discovering</Link>
         <div className="auth-story-copy">

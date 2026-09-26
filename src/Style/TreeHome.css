@@ -268,7 +268,7 @@
   width: 18px;
   transform: rotateY(calc(var(--face) * 30deg)) translateZ(32px);
   backface-visibility: hidden;
-  background: linear-gradient(90deg, #26371966, #b4ba6625), url('../assets/Images/LandingTree/bark2.webp') calc(var(--face) * -18px) top / 216px 650px;
+  background: linear-gradient(90deg, #26371966, #b4ba6625), url('/images/optimized/bark-216.webp') calc(var(--face) * -18px) top / 216px 650px;
   box-shadow: inset 1px 0 #c9cf8420;
 }
 
@@ -672,7 +672,7 @@
 }
 
 .soil-footer .brand-copy small,
-.soil-footer .footer-grid h3 {
+.soil-footer .footer-grid h2 {
   color: #c3caa2;
 }
 

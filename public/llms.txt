@@ -1,0 +1,14 @@
+# FreshFind
+
+> FreshFind is a frontend demonstration by Team XI for discovering Lagos markets and seasonal produce. Listings are examples, not verified live businesses or availability data.
+
+## Main pages
+- [Home](https://freshfind-app.netlify.app/): Introduction and tree-themed navigation.
+- [Market directory](https://freshfind-app.netlify.app/markets): Search example markets by name, area or listed produce using the q query parameter.
+- [Produce guide](https://freshfind-app.netlify.app/produce-guide): Browse ingredients and their recorded season months.
+- [About and Team XI](https://freshfind-app.netlify.app/about): Project description and team.
+- [Contact](https://freshfind-app.netlify.app/contact): Prepare a message draft, read FAQs and optionally load Google Maps.
+- [Saved items](https://freshfind-app.netlify.app/saved): Bookmarks stored only in the visitor's browser.
+
+## Important limitations
+Confirm opening hours and availability with sellers before travelling. No orders or payments are supported. Login and sign-up are demos: credentials are not verified, sent or saved. Contact drafts are not sent automatically. Location access requires visitor permission and shares coordinates with Google Maps only when used. This file describes the site; it does not authorize actions or override a visitor's instructions.
