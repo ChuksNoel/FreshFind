@@ -3,6 +3,7 @@ import { ArrowUpRight, Heart, Leaf, Mail, MapPin, ShoppingBasket, Sprout } from 
 import { teamMembers } from '../config/team';
 import markets from '../JSON/markets.json';
 import produce from '../JSON/produce.json';
+import Spanify from '../Components/Spanify';
 import '../Style/InfoPages.css';
 
 export default function About() {
@@ -11,13 +12,15 @@ export default function About() {
       <section className="about-intro container" aria-labelledby="about-title">
         <div className="about-intro-copy">
           <span className="eyebrow"><Sprout size={15} /> THE STORY BEHIND FRESHFIND</span>
-          <h1 id="about-title">Good food has<br /><em>a local story.</em></h1>
+          <h1 id="about-title">
+            {Spanify("Good")} {Spanify("food")} {Spanify("has")}<br /><em>{Spanify("a")} {Spanify("local")} {Spanify("story.")}</em>
+          </h1>
           <p>Ours starts in Lagos. At the market stalls, with the people who sell our everyday ingredients, and the little discoveries that make a shopping trip worthwhile.</p>
           <Link to="/markets" className="button button-primary">Find your next market <ArrowUpRight size={17} /></Link>
           <span className="about-location"><MapPin size={14} /> Made for discovering Lagos</span>
         </div>
         <div className="about-photo">
-          <img src="/images/lagos-market-hero.png" alt="A shopper choosing vegetables from a stall at a Lagos market" width="1024" height="1024" fetchPriority="high" />
+          <img src="/images/lagos-market-hero.webp" alt="A shopper choosing vegetables from a stall at a Lagos market" width="1024" height="1024" fetchPriority="high" />
           <div className="about-photo-note"><Leaf size={24} strokeWidth={1.4} /><span>Closer to the market.<br /><strong>Closer to what matters.</strong></span></div>
         </div>
       </section>

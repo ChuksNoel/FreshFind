@@ -45,10 +45,6 @@
     opacity: 0;
     animation: fallBounce .6s ease-out calc(.02s * sibling-index()) forwards;
   }
-
-  br ~ span {
-    /* animation-delay: calc(.05s * sibling-index() + .1s); */
-  }
 }
 
 .tree-hero-copy>p {
