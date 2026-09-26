@@ -72,10 +72,7 @@ export const getBotResponse = (message) => {
 
     const text = normalizeText(message);
 
-
-    // =====================================
     // 1. PRODUCE SEARCH
-    // =====================================
 
     const produce = findProduce(message);
 
@@ -118,10 +115,7 @@ export const getBotResponse = (message) => {
     }
 
 
-
-    // =====================================
     // 2. MARKET DETAILS
-    // =====================================
 
     const market = findMarket(message);
 
@@ -154,11 +148,7 @@ export const getBotResponse = (message) => {
 
     }
 
-
-
-    // =====================================
     // 3. SEARCH BY LOCATION
-    // =====================================
 
     const detectedArea = findArea(message);
 
@@ -218,12 +208,7 @@ export const getBotResponse = (message) => {
 
     }
 
-
-
-    // =====================================
     // 5. OPEN TODAY
-    // =====================================
-
     if (
         text.includes("open today") ||
         text.includes("markets today") ||
@@ -261,11 +246,7 @@ export const getBotResponse = (message) => {
 
     }
 
-
-
-    // =====================================
     // 6. SEASONAL PRODUCE
-    // =====================================
 
     if (
         text.includes("season") ||
@@ -306,10 +287,7 @@ export const getBotResponse = (message) => {
     }
 
 
-
-    // =====================================
     // 7. GENERAL CHATBOT RESPONSES
-    // =====================================
 
     const generalResponse = chatbotData.find((item) =>
         item.keywords.some((keyword) =>
@@ -326,13 +304,7 @@ export const getBotResponse = (message) => {
         };
 
     }
-
-
-
-    // =====================================
     // 8. FALLBACK
-    // =====================================
-
     return {
         type: "text",
         message:
