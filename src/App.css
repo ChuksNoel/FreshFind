@@ -966,15 +966,15 @@
   margin-bottom: 32px;
 }
 
-.topic {
-  display: inline-block;
-  animation: fallBounce .6s ease-in-out calc(sibling-index() * .05s) both;
-}
-
 .page-intro h1 {
   font: 400 clamp(40px, 4.6vw, 60px)/1.08 var(--display);
   letter-spacing: -.035em;
   margin: 18px 0;
+
+  span {
+    display: inline-block;
+    animation: fallBounce .6s ease-in-out calc(sibling-index() * .05s) both;
+  }
 }
 
 .page-intro p {
@@ -1325,8 +1325,13 @@
 .produce-hero h1 {
   font: 400 clamp(43px, 5vw, 65px)/1.06 var(--display);
   letter-spacing: -.035em;
-  max-width: 610px;
+  max-width: 15ch;
   margin: 20px 0;
+
+  span {
+      display: inline-block;
+      animation: fallBounce .6s ease-in-out calc(sibling-index() * .05s) both;;
+  }
 }
 
 .produce-hero p {
