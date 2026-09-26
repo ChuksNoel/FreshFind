@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Heart, Leaf, MapPin, ShoppingBasket, Sprout } from 'lucide-react';
+import { ArrowUpRight, Heart, Leaf, Mail, MapPin, ShoppingBasket, Sprout } from 'lucide-react';
+import { teamMembers } from '../config/team';
 import markets from '../JSON/markets.json';
 import produce from '../JSON/produce.json';
 import '../Style/InfoPages.css';
@@ -43,6 +44,20 @@ export default function About() {
           <Link to="/markets"><span>01</span><h3>Find a market</h3><p>Browse {markets.length} listings and filter by area or search for your favourite produce.</p><ArrowUpRight size={20} /></Link>
           <Link to="/produce-guide"><span>02</span><h3>Explore what grows</h3><p>Meet {produce.length} familiar ingredients and discover what is listed in season.</p><ArrowUpRight size={20} /></Link>
           <Link to="/saved"><span>03</span><h3>Make it your own</h3><p>Tap a heart to keep a market or ingredient in your saved collection.</p><ArrowUpRight size={20} /></Link>
+        </div>
+      </section>
+
+      <section className="about-team container" aria-labelledby="team-title">
+        <div className="info-section-heading"><span className="eyebrow">THE PEOPLE BEHIND FRESHFIND</span><h2 id="team-title">Meet <em>Team XI.</em></h2><p>A shared project, rooted in local discovery.</p></div>
+        <div className="about-team-grid">
+          {teamMembers.map((member) => (
+            <article className="about-team-card" key={member.email}>
+              <span className="about-team-initials" aria-hidden="true">{member.initials}</span>
+              <h3>{member.name}</h3>
+              {member.id && <p className="about-team-id">ID: {member.id}</p>}
+              <a className="about-team-email" href={`mailto:${member.email}`}><Mail size={16} aria-hidden="true" /><span>{member.email}</span></a>
+            </article>
+          ))}
         </div>
       </section>
 

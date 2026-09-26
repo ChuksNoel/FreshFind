@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import { SavedProvider } from './context/SavedContext';
 import ChatBot from './components/chatbot/ChatBot';
@@ -12,6 +12,8 @@ import ProduceGuide from './pages/ProduceGuide';
 import Bookmarks from './Shared/Bookmarks';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 
 function ScrollToTop() {
@@ -35,6 +37,9 @@ function App() {
             <Route path="/saved" element={<Bookmarks />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signin" element={<Navigate to="/login" replace />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="*" element={<div className="container empty-page"><h1>Page not found</h1><Link to="/" className="button button-primary">Back to home</Link></div>} />
           </Routes>
         </main>

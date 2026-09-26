@@ -27,6 +27,16 @@
 .about-steps p { font-size: 13px; margin: 0; max-width: 310px; }
 .about-steps>a>svg { position: absolute; right: 6px; top: 32px; }
 .about-steps>a:hover { border-color: var(--green); }
+.about-team { padding-block: 45px 65px; border-top: 1px solid var(--line); }
+.about-team-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+.about-team-card { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 30px 25px; border: 1px solid var(--line); border-radius: 12px 40px 12px 12px; background: #fffefa; }
+.about-team-initials { display: grid; place-items: center; width: 62px; height: 62px; border-radius: 50%; background: #e5ecd9; color: var(--green); font: 23px var(--display); }
+.about-team-card h3 { font-size: 26px; line-height: 1.25; margin: 24px 0 10px; }
+.about-team-card .about-team-id { font-size: 12px; margin: 0 0 18px; }
+.about-team-email { display: flex; align-items: center; gap: 9px; padding-top: 12px; margin-top: auto; color: var(--green); font-size: 12px; line-height: 1.6; }
+.about-team-email svg { flex: none; }
+.about-team-email span { overflow-wrap: anywhere; }
+.about-team-email:hover { text-decoration: underline; }
 .info-invitation { display: flex; align-items: center; justify-content: space-between; gap: 35px; background: var(--deep); color: #fffcef; padding: 42px 48px; border-radius: 12px 60px 12px 12px; }
 .info-invitation h2 { margin-block: 15px; }
 .info-invitation p { color: #c2cfb7; max-width: 490px; margin: 0; }
@@ -107,6 +117,8 @@
   .about-values-grid, .about-steps { grid-template-columns: 1fr; gap: 28px; }
   .about-values-grid p, .about-steps p { max-width: none; }
   .about-how { padding-block: 40px; }
+  .about-team { padding-block: 35px 40px; }
+  .about-team-grid { grid-template-columns: 1fr; gap: 18px; }
   .info-invitation { padding: 30px 25px; align-items: start; flex-direction: column; gap: 23px; }
   .contact-intro { padding-block: 40px 25px; }
   .contact-intro .eyebrow { font-size: 8px; letter-spacing: .1em; }

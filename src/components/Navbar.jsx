@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Heart, MapPin, Menu, Search, Sprout, X } from 'lucide-react';
+import { Heart, Menu, Search, Sprout, X } from 'lucide-react';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,9 +25,9 @@ function Navbar() {
           {links.map((link) => <NavLink key={link.to} to={link.to} end={link.to === '/'} onClick={() => setMenuOpen(false)} className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>{link.label}</NavLink>)}
         </nav>
         <div className="header-actions">
-          <span className="location-label"><MapPin size={15} /> Lagos, NG</span>
           <Link className="icon-link" to="/markets" aria-label="Search markets"><Search size={19} /></Link>
           <Link className="icon-link saved-link" to="/saved" aria-label="Saved items"><Heart size={19} /></Link>
+          <Link className="header-signin" to="/login" onClick={() => setMenuOpen(false)}>Sign in</Link>
           <button type="button" className="menu-toggle" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} aria-controls="main-navigation">{menuOpen ? <X size={22} /> : <Menu size={22} />}</button>
         </div>
       </div>
