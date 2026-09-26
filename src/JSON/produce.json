@@ -5,7 +5,7 @@
     "category": "Vegetables",
     "description": "Fresh tomatoes commonly used in sauces, soups and salads.",
     "season": ["March", "April", "May", "June"],
-    "image": "/images/produce/tomatoes.jpg"
+    "image": "/images/produce/tomatoes.webp"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "category": "Vegetables",
     "description": "Crunchy root vegetables commonly eaten raw or cooked.",
     "season": ["November", "December", "January", "February"],
-    "image": "/images/produce/carrots.jpg"
+    "image": "/images/produce/carrots.webp"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "category": "Vegetables",
     "description": "Fresh leafy greens suitable for soups and healthy meals.",
     "season": ["April", "May", "June", "July"],
-    "image": "/images/produce/spinach.jpg"
+    "image": "/images/produce/spinach.webp"
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "category": "Fruits",
     "description": "Sweet tropical fruit available from several local markets.",
     "season": ["January", "February", "March", "April", "May", "June"],
-    "image": "/images/produce/bananas.jpg"
+    "image": "/images/produce/bananas.webp"
   },
   {
     "id": 5,
@@ -37,7 +37,7 @@
     "category": "Tubers",
     "description": "A popular Nigerian staple available in several local markets.",
     "season": ["August", "September", "October", "November"],
-    "image": "/images/produce/yam.jpg"
+    "image": "/images/produce/yam.webp"
   },
   {
     "id": 6,
@@ -45,7 +45,7 @@
     "category": "Vegetables",
     "description": "Fresh peppers commonly used in Nigerian dishes.",
     "season": ["March", "April", "May", "June", "July"],
-    "image": "/images/produce/pepper.jpg"
+    "image": "/images/produce/pepper.webp"
   },
   {
     "id": 7,
@@ -53,7 +53,7 @@
     "category": "Vegetables",
     "description": "Fresh cucumbers suitable for salads and healthy meals.",
     "season": ["February", "March", "April", "May"],
-    "image": "/images/produce/cucumber.jpg"
+    "image": "/images/produce/cucumber.webp"
   },
   {
     "id": 8,
@@ -61,6 +61,6 @@
     "category": "Fruits",
     "description": "Sweet and refreshing seasonal fruit.",
     "season": ["March", "April", "May", "June"],
-    "image": "/images/produce/watermelon.jpg"
+    "image": "/images/produce/watermelon.webp"
   }
 ]
