@@ -25,6 +25,10 @@ export default function Contact() {
   async function prepareMessage(event) {
     event.preventDefault();
     const fields = new FormData(event.currentTarget);
+    if (String(fields.get('message')).trim().length < 10) {
+      setStatus('Please write at least 10 characters in your message.');
+      return;
+    }
     const subject = `FreshFind: ${fields.get('topic')}`;
     const message = `Name: ${String(fields.get('name')).trim()}\nReply email: ${String(fields.get('email')).trim()}\nTopic: ${fields.get('topic')}\n\n${String(fields.get('message')).trim()}`;
     setCopied(false);

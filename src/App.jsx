@@ -10,8 +10,6 @@ import Markets from './pages/Markets';
 import MarketsDetails from './pages/MarketsDetails';
 import ProduceGuide from './pages/ProduceGuide';
 import Bookmarks from './Shared/Bookmarks';
-import Home1 from './pages/Home1';
-import Home2 from './pages/Home2';
 import About from './pages/About';
 import Contact from './pages/Contact';
 
