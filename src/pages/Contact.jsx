@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Check, Copy, Mail, MapPin, Navigation, Phone, Sprout } from 'lucide-react';
+import Spanify from '../Components/Spanify';
 import { contactDetails } from '../config/contact';
 import '../Style/InfoPages.css';
 
@@ -66,7 +67,14 @@ export default function Contact() {
 
   return (
     <div className="info-page contact-page">
-      <section className="contact-intro container" aria-labelledby="contact-title"><span className="eyebrow"><Sprout size={15} /> A LITTLE CONVERSATION GOES A LONG WAY</span><h1 id="contact-title">Let’s grow<br /><em>something good.</em></h1><p>A question, a suggestion, or a fresh find of your own.<br />We’d love to hear what’s on your mind.</p></section>
+      <section className="contact-intro container" aria-labelledby="contact-title">
+        <span className="eyebrow">
+          <Sprout size={15} /> A LITTLE CONVERSATION GOES A LONG WAY
+        </span>
+        <h1 id="contact-title">
+          {Spanify("Let's")} {Spanify("grow")}<br /><em>{Spanify("something")} {Spanify("good.")}</em>
+        </h1>
+        <p>A question, a suggestion, or a fresh find of your own.<br />We’d love to hear what’s on your mind.</p></section>
       <section className="contact-layout container" aria-label="Contact FreshFind">
         <aside className="contact-aside">
           <span className="info-icon"><Mail size={25} /></span><h2>Start a conversation.</h2><p>Tell us about a market, help improve a listing, or share your thoughts about FreshFind.</p>

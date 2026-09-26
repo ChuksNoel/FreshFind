@@ -1,35 +1,46 @@
+@import './motion.css';
 .info-page {
    padding-bottom: 70px;
-   }
+}
 .info-page h1, .info-page h2, .info-page h3 {
    font-family: var(--display);
-    font-weight: 400; 
-  }
-.info-page h1 { 
-  font-size: clamp(48px,5.8vw,78px); 
-  line-height: 1.04; 
+   font-weight: 400;
+}
+.info-page h1 {
+  font-size: clamp(48px,5.8vw,78px);
+  line-height: 1.04;
   letter-spacing: -.04em;
-   margin: 23px 0;
-   }
+  margin: 23px 0;
+}
 .info-page h2 {
    font-size: clamp(30px,3.3vw,44px);
-    line-height: 1.14; 
-    
-    letter-spacing: -.025em; margin: 15px 0 20px; }
-.info-page h1 em, .info-page h2 em { 
+   line-height: 1.14;
+   letter-spacing: -.025em;
+   margin: 15px 0 20px;
+}
+.info-page h1 em, .info-page h2 em {
   color: #6b8057;
- }
+}
 .info-page p {
    font-size: 14px;
-    line-height: 1.85; 
-    color: var(--muted);
-   }
+   line-height: 1.85;
+   color: var(--muted);
+}
 .about-intro {
    display: grid;
-    grid-template-columns: 1fr 1fr;
-     gap: 75px;
-      align-items: center;
-       padding-block: 65px 75px; }
+   grid-template-columns: 1fr 1fr;
+   gap: 75px;
+   align-items: center;
+   padding-block: 65px 75px;
+}
+.about-intro h1 span {
+    display: inline-block;
+    opacity: 0;
+    animation: fallBounce .6s ease calc(sibling-index() * .05s) forwards;
+}
+.about-intro h1 em span {
+    animation-delay: calc(sibling-index() * .05s + .55s)
+}
 .about-intro-copy>p { max-width: 440px; margin-bottom: 28px; }
 .about-location { display: flex; gap: 6px; align-items: center; color: #738268; font-size: 11px; margin-top: 22px; }
 .about-photo { position: relative; height: 505px; }
@@ -68,6 +79,14 @@
 .info-invitation .button { flex: none; }
 .contact-intro { text-align: center; padding-block: 65px 50px; }
 .contact-intro p { margin: 0; }
+.contact-intro h1 span {
+    display: inline-block;
+    opacity: 0;
+    animation: fallBounce .6s ease calc(sibling-index() * .05s) forwards;
+}
+.contact-intro h1 em span {
+    animation-delay: calc(sibling-index() * .05s + .55s)
+}
 .contact-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 65px; padding-bottom: 65px; }
 .contact-aside { padding: 28px 5px 0 0; }
 .contact-aside h2 { font-size: 32px; margin-top: 25px; }
