@@ -11,7 +11,7 @@ export default function Footer() {
           <p>Find fresh produce and discover the people growing our Lagos communities, one market at a time.</p>
         </div>
         <div><h3>Explore</h3><Link to="/markets">Market directory</Link><Link to="/produce-guide">Produce guide</Link><Link to="/saved">Saved items</Link></div>
-        <div><h3>Made for Lagos</h3><p>Local discovery, seasonal inspiration, and a simpler way to shop fresh.</p></div>
+        <div><h3>Made for Lagos</h3><Link to="/about">About FreshFind</Link><Link to="/contact">Contact us</Link><p>Local discovery, seasonal inspiration, and a simpler way to shop fresh.</p></div>
         <div className="footer-cta"><span>Good food starts close to home.</span><Link to="/markets">Explore markets <ArrowUpRight size={16} /></Link></div>
       </div>
       <div className="container footer-bottom"><span>© {new Date().getFullYear()} FreshFind</span><span>Fresh all along · Lagos, Nigeria</span></div>
