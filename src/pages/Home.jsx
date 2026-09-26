@@ -6,8 +6,8 @@ import produce from '../JSON/produce.json';
 import ProduceCard from '../components/ProduceCard';
 import { marketImage } from '../utils/market';
 import '../Style/TreeHome.css';
-import treestump from '../assets/Images/LandingTree/stump2.png';
-import treetop from '../assets/Images/LandingTree/Treetop.png';
+import treestump from '../assets/Images/LandingTree/stump2.webp';
+import treetop from '../assets/Images/LandingTree/Treetop.webp';
 
 // Home1's canopy → hanging panes → roots outline, with a shared scroll-driven axis.
 function useTreeMotion(root, enabled) {

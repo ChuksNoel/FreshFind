@@ -1340,7 +1340,7 @@
 }
 
 .produce-hero {
-  background: linear-gradient(90deg, #173b2ddb, #173b2d22), url('/images/seasonal-produce.png') center/cover;
+  background: linear-gradient(90deg, #173b2ddb, #173b2d22), url('/images/seasonal-produce.webp') center/cover;
   min-height: 355px;
   color: white;
   display: flex;
@@ -1416,7 +1416,7 @@
 
 .saved-promo {
   min-height: 250px;
-  background: linear-gradient(90deg, #163b2cf2, #163b2caa), url('/images/seasonal-produce.png') center/cover;
+  background: linear-gradient(90deg, #163b2cf2, #163b2caa), url('/images/seasonal-produce.webp') center/cover;
 }
 
 .saved-promo h2 {

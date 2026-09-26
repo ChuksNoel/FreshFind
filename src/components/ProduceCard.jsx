@@ -12,7 +12,7 @@ export default function ProduceCard({ item, compact = false }) {
   return (
     <article className={`produce-card ${compact ? 'compact' : ''}`}>
       <div className="produce-art">
-        <img src={`/images/produce/${item.name.toLowerCase()}.png`} alt={`Fresh ${item.name.toLowerCase()}`} loading="lazy" width="1254" height="1254" />
+        <img src={`/images/produce/${item.name.toLowerCase()}.webp`} alt={`Fresh ${item.name.toLowerCase()}`} loading="lazy" width="1254" height="1254" />
       </div>
       <button type="button" className={`save-button ${isSaved ? 'is-saved' : ''}`} onClick={() => toggleSaved('produce', item.id)} aria-label={`${isSaved ? 'Remove' : 'Save'} ${item.name}`} aria-pressed={isSaved}><Heart size={18} fill={isSaved ? 'currentColor' : 'none'} /></button>
       <div className="produce-card-body">

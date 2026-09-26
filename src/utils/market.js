@@ -1,6 +1,6 @@
 export const marketImage = (market) => market.id % 2 === 0
-  ? '/images/lagos-market-stall.png'
-  : '/images/lagos-market-hero.png';
+  ? '/images/lagos-market-stall.webp'
+  : '/images/lagos-market-hero.webp';
 
 export function isOpenToday(market, date = new Date()) {
   const weekday = new Intl.DateTimeFormat('en-US', { weekday: 'long', timeZone: 'Africa/Lagos' }).format(date);
