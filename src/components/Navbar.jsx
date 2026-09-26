@@ -9,6 +9,8 @@ function Navbar() {
     { to: '/markets', label: 'Markets' },
     { to: '/produce-guide', label: 'Produce Guide' },
     { to: '/saved', label: 'Saved' },
+    { to: '/about', label: 'About Us' },
+    { to: '/contact', label: 'Contact Us' },
   ];
 
   return (
