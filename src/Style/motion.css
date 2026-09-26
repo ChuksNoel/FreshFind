@@ -8,6 +8,17 @@
         opacity: 1;
     }
 }
+@keyframes cardFloatIn {
+    from {
+        translate: 0 10%;
+        opacity: 0;
+    }
+    to {
+        translate: 0 0;
+        opacity: 1;
+        --delay: calc(sibling-index() * .2s);
+    }
+}
 
 @keyframes fallBounce {
   /* Letter starts ABOVE the text */
@@ -56,4 +67,13 @@
   to {
     opacity: 1;
   }
+}
+
+@keyframes showNav {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
 }

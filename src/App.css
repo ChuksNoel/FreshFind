@@ -111,6 +111,14 @@
   border-bottom: 1px solid var(--line);
   position: relative;
   z-index: 30;
+  position: sticky;
+  top: 0;
+  transform-origin: top;
+  transform: scaleY(0);
+  animation: showNav 1s ease-in-out .3s both;
+  background: #ffffff78;
+  color: white;
+  backdrop-filter: blur(30px);
 }
 
 .header-inner {
@@ -542,6 +550,13 @@
   margin: 13px 0 11px;
 }
 
+.section-heading h2 {
+    span {
+        opacity: 0;
+        animation: fallBounce .6s ease calc(sibling-index() * .05s + .6s) forwards;
+    }
+}
+
 .section-heading p {
   font-size: 13px;
   color: var(--muted);
@@ -572,6 +587,8 @@
   font-weight: 500;
   border-radius: 100px;
   transition: background .2s, color .2s;
+  opacity: 0;
+  animation: fadeIn .6s ease-in calc(sibling-index() * .2s + 1.3s) forwards;
 }
 
 .filter-pill:hover {
@@ -598,6 +615,13 @@
   border-radius: 13px;
   overflow: hidden;
   transition: box-shadow .25s, transform .25s;
+  opacity: 0;
+  --delay: calc(sibling-index() * .2s + 1.4s);
+  animation-name: cardFloatIn;
+  animation-duration: .32s;
+  animation-timing-function: ease-in;
+  animation-delay: var(--delay);
+  animation-fill-mode: both;
 }
 
 .market-card:hover {
@@ -852,6 +876,13 @@
   border-radius: 11px;
   overflow: hidden;
   transition: transform .2s, box-shadow .2s;
+  opacity: 0;
+  --delay: calc(sibling-index() * .32s + 1.4s);
+  animation-name: cardFloatIn;
+  animation-duration: .32s;
+  animation-timing-function: ease-in;
+  animation-delay: var(--delay);
+  animation-fill-mode: both;
 }
 
 .produce-card:hover {
@@ -992,6 +1023,8 @@
   border: 1px solid var(--line);
   border-radius: 10px;
   background: #fffefa;
+  opacity: 0;
+  animation: floatIn .6s ease 1.2s forwards;
 }
 
 .search-field {

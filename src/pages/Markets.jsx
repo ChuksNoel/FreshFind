@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, SlidersHorizontal, X } from 'lucide-react';
+import { Search, SlidersHorizontal, X, SortAsc, SortDesc, ListSortAscending, FilterX } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import markets from '../JSON/markets.json';
 import MarketCard from '../components/MarketCard';
@@ -12,13 +12,63 @@ function Spanify(text) {
 export default function Markets() {
   const [params, setParams] = useSearchParams();
   const [area, setArea] = useState('All areas');
+  const [sort, setSort] = useState(0); // 0 for no sort, 1 for Market, 2 for Location, 3 for nearness to open
+  const [order, setOrder] = useState(0); // 0 for Ascending, 1 for Descending
   const [openToday, setOpenToday] = useState(false);
   const query = params.get('q') || '';
   const areas = ['All areas', ...new Set(markets.map((market) => market.area))];
-  const filtered = markets.filter((market) => {
-    const matchesQuery = !query || [market.name, market.area, market.address, ...market.produce].some((value) => value.toLowerCase().includes(query.toLowerCase()));
-    return matchesQuery && (area === 'All areas' || market.area === area) && (!openToday || isOpenToday(market));
-  });
+  let filtered = markets
+    .filter((market) => {
+      const matchesQuery = !query || [market.name, market.area, market.address, ...market.produce].some((value) => value.toLowerCase().includes(query.toLowerCase()));
+      return matchesQuery && (area === 'All areas' || market.area === area) && (!openToday || isOpenToday(market));
+    })
+    .sort((market1, market2) => { // -1 if less, 0 if equal, 1 if greater
+      if (sort == 0) // No Sort
+        return undefined;
+
+      else if (sort == 1) // Market Name
+        return market1.name.localeCompare(market2.name);
+
+      else if (sort == 2)
+        return market1.area.localeCompare(market2.area);
+
+      // Opening Soon
+      const now = new Date();
+      const currentDay = now.toLocaleString("en-US", { weekday: "long" });
+      const currentTime = now.toTimeString().slice(0, 5); // "HH:MM"
+
+      function soonness(market) {
+        // If open now → 0
+        if (
+          market.days.includes(currentDay) &&
+          currentTime >= market.openingTime &&
+          currentTime <= market.closingTime
+        ) return 0;
+
+        // Find next opening day/time
+        const daysOfWeek = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", ];
+        const todayIndex = now.getDay();
+
+        for (let offset = 0; offset < daysOfWeek.length; offset++) {
+          const checkDayIndex = (todayIndex + offset) % 7;
+          const checkDay = daysOfWeek[checkDayIndex];
+
+          if (market.days.includes(checkDay)) {
+            const nextOpen = new Date(now);
+            nextOpen.setDate(now.getDate() + offset);
+
+            const [hours, minutes] = market.openingTime.split(":").map(Number);
+            nextOpen.setHours(hours, minutes, 0, 0);
+
+            return nextOpen.getTime() - now.getTime(); // ms until next open
+          }
+        }
+        return Infinity; // never opens
+      }
+
+      return soonness(market1) - soonness(market2);
+      })
+    ;
 
   return (
     <div className="page-section container">
@@ -44,10 +94,53 @@ export default function Markets() {
             {areas.map((option) => <option key={option}>{option}</option>)}
           </select>
         </label>
+        <label className="select-field">
+          {sort != 0 ?
+            <button onClick={() => setOrder(order => (order + 1) % 2)}>
+              {order ? <SortDesc /> : <SortAsc />}
+            </button>
+            :
+            <ListSortAscending />
+          }
+          <span className="sr-only">Sort</span>
+          <select value={sort} onChange={(event) => setSort(event.target.value)}>
+            <option value="0">No Sort</option>
+            <option value="1">Market</option>
+            <option value="2">Location</option>
+            <option value="3">Opening time</option>
+          </select>
+        </label>
+        {(sort != 0 || query != "" || area != 'All areas' || openToday ) &&
+          <button onClick={() => { setParams({}); setArea('All areas'); setOpenToday(false); setSort(0); setOrder(0); }}> <FilterX /> </button>}
       </div>
-      <div className="filter-row"><button type="button" className={`filter-pill ${!openToday ? 'active' : ''}`} onClick={() => setOpenToday(false)}>All markets</button><button type="button" className={`filter-pill ${openToday ? 'active' : ''}`} onClick={() => setOpenToday(true)}>Open today</button><span className="result-count">{filtered.length} {filtered.length === 1 ? 'market' : 'markets'} found</span></div>
-      {filtered.length ? <div className="market-grid directory-grid">{filtered.map((market) => <MarketCard key={market.id} market={market} />)}</div> : <div className="empty-state"><Search size={30} /><h2>No markets found</h2><p>Try another area or search term.</p><button type="button" className="button button-primary" onClick={() => { setParams({}); setArea('All areas'); setOpenToday(false); }}>Clear filters</button></div>}
-      <div className="directory-note"><div><span className="eyebrow light">FRESHFIND TIP</span><h2>Go with a little curiosity.</h2><p>Market days can change. Check directly with a market before making a special trip.</p></div><span aria-hidden="true">✳</span></div>
+      <div className="filter-row">
+        <button type="button" className={`filter-pill ${!openToday ? 'active' : ''}`} onClick={() => setOpenToday(false)}>All markets</button>
+        <button type="button" className={`filter-pill ${openToday ? 'active' : ''}`} onClick={() => setOpenToday(true)}>Open today</button>
+        <span className="result-count">{filtered.length} {filtered.length === 1 ? 'market' : 'markets'} found</span>
+      </div>
+      {filtered.length ?
+        <div className="market-grid directory-grid">
+          {order == 0 ?
+            filtered.map((market) => <MarketCard key={market.id} market={market} />)
+            :
+            filtered.reverse().map((market) => <MarketCard key={market.id} market={market} />)
+          }
+        </div>
+        :
+        <div className="empty-state"><Search size={30} />
+          <h2>No markets found</h2>
+          <p>Try another area or search term.</p>
+          <button type="button" className="button button-primary" onClick={() => { setParams({}); setArea('All areas'); setOpenToday(false); setSort(0); setOrder(0); }}>Clear filters</button>
+        </div>
+      }
+      <div className="directory-note">
+        <div>
+          <span className="eyebrow light">FRESHFIND TIP</span>
+          <h2>Go with a little curiosity.</h2>
+          <p>Market days can change. Check directly with a market before making a special trip.</p>
+        </div>
+        <span aria-hidden="true">✳</span>
+      </div>
     </div>
   );
 }

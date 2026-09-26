@@ -1,12 +1,12 @@
-body {
+/*body {
     width: 100dvw;
     height: 100dvh;
     overflow: visible;
     transform: preserve-3d;
-    /*box-shadow: 0 0 0 1px black;*/
+    box-shadow: 0 0 0 1px black;
     perspective: left center;
-    /*perspective: 10000px;*/
-}
+    perspective: 10000px;
+}*/
 
 .Treetrunk {
     position: absolute;
