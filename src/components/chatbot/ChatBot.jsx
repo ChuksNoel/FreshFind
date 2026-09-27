@@ -57,7 +57,7 @@ export default function ChatBot() {
         {open ? <X size={22} /> : <MessageCircle size={23} />}
         {!open && <span>Ask FreshFind</span>}
       </button>
-      {open && (
+      {open? (
         <div id="freshfind-chat" className="chat-container" role="dialog" aria-label="FreshFind assistant" onKeyDown={(event) => { if (event.key === 'Escape') closeChat(); }}>
           <div className="chat-header">
             <span className="chat-brand-icon"><Sprout size={21} /></span>
@@ -79,7 +79,7 @@ export default function ChatBot() {
           </form>
           <div className="chat-footnote">A little help for your next market trip.</div>
         </div>
-      )}
+      ) : null}
     </>
   );
 }
