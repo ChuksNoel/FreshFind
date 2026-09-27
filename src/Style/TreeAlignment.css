@@ -62,6 +62,23 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /*.tree-home .tree-hero h1 span,
+  .tree-home .tree-search,
+  .tree-home .tree-search input,
+  .tree-home .tree-canopy,
+  .tree-home .bark-face,
+  .beanstalk {
+    opacity: 1 !important;
+  }*/
+
+  .site-header {
+      transform: none !important;
+  }
+
+  * {
+      opacity: 1 !important;
+  }
+
   .tree-home .tree-motion-toggle {
     display: none;
   }
