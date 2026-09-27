@@ -110,8 +110,7 @@
 }
 
 .bot-message .waiting{
-    animation: chatwait 1s ease-in calc(sibling-index() * .1s) infinite;
-    content-visibility: auto;
+    animation: chatwait .6s ease-in calc(sibling-index() * .1s) infinite;
 
 }
 .user-message {

@@ -10,7 +10,7 @@ const ChatMessage = ({ message, loading }) => {
 
   useEffect(() => {
     let callback = () => setShowMsg(true)
-    setTimeout(callback, 3500)
+    setTimeout(callback, 2500)
   })
 
   return <div className={message.sender === "user" ? "chat-message-wrapper user-wrapper" : "chat-message-wrapper bot-wrapper"} >
