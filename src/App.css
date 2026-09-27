@@ -219,6 +219,26 @@
   border-right: 1px solid var(--line);
 }
 
+.saved-link {
+    position: relative;
+}
+
+.saved-link .bubble {
+    position: absolute;
+    top: 2mm;
+    right: -5mm;
+    font-size: x-small;
+    font-weight: bold;
+    transform: translate(-100%);
+    width: 5mm;
+    height: 5mm;
+    background: var(--mint);
+    text-align: center;
+    align-content: center;
+    border-radius: 50%;
+    border: 1px solid;
+}
+
 .icon-link,
 .menu-toggle {
   width: 40px;
@@ -616,7 +636,8 @@
   overflow: hidden;
   transition: box-shadow .25s, transform .25s;
   opacity: 0;
-  animation: cardFloatIn .32s ease-in calc(sibling-index() * .2s + 1.4s) both;
+  animation: cardFloatIn .32s ease-in both;
+  animation-delay: calc(sibling-index() * .2s/* + 1.4s*/);
 }
 
 .market-card:hover {
@@ -872,7 +893,8 @@
   overflow: hidden;
   transition: transform .2s, box-shadow .2s;
   opacity: 0;
-  animation: cardFloatIn .32s ease-in calc(sibling-index() * .32s + 1.4s) both;
+  animation: cardFloatIn .32s ease-in both;
+  animation-delay: calc(sibling-index() * .32s /*+ 1.4s*/);
 }
 
 .produce-card:hover {

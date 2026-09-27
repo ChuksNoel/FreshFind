@@ -83,3 +83,40 @@
     display: none;
   }
 }
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .site-header {
+    position: static !important;
+    transform: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .tree-home .tree-hero h1 span,
+  .tree-home .tree-search,
+  .tree-home .tree-search input,
+  .tree-home .tree-canopy,
+  .tree-home .bark-face,
+  .tree-home .canopy-note {
+    opacity: 1 !important;
+  }
+
+  .tree-home .beanstalk-cylinder,
+  .tree-home .tree-chapter .branch-arm {
+    transform: none !important;
+  }
+
+  .tree-motion-toggle,
+  .chat-launcher,
+  .chat-container,
+  .skip-link {
+    display: none !important;
+  }
+}

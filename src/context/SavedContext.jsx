@@ -1,4 +1,4 @@
-import { createContext, useContext, useSyncExternalStore } from 'react';
+import { createContext, useContext, useSyncExternalStore, useState } from 'react';
 
 const SavedContext = createContext(null);
 const STORAGE_KEY = 'freshfind-saved';
@@ -33,17 +33,29 @@ function subscribe(callback) {
 
 export function SavedProvider({ children }) {
   const saved = useSyncExternalStore(subscribe, initialSaved, () => emptySaved);
+  const [length, setLength] = useState((() => {
+    let saved = initialSaved();
+    return saved.markets.length + saved.produce.length;
+  })())
 
   function toggleSaved(type, id) {
     const current = initialSaved();
     const ids = current[type];
     cachedSaved = { ...current, [type]: ids.includes(id) ? ids.filter(item => item !== id) : [...ids, id] };
     cachedRaw = JSON.stringify(cachedSaved);
-    try { localStorage.setItem(STORAGE_KEY, cachedRaw); } catch { memoryOnly = true; }
+
+    setLength(cachedSaved.markets.length + cachedSaved.produce.length);
+
+    try {
+      localStorage.setItem(STORAGE_KEY, cachedRaw);
+    }
+    catch {
+      memoryOnly = true;
+    }
     window.dispatchEvent(new Event('freshfind-saved-change'));
   }
 
-  return <SavedContext.Provider value={{ saved, toggleSaved }}>{children}</SavedContext.Provider>;
+  return <SavedContext.Provider value={{ saved, toggleSaved, length }}>{children}</SavedContext.Provider>;
 }
 
 // eslint-disable-next-line react-refresh/only-export-components

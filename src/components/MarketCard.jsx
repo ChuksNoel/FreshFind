@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Clock3, Heart, MapPin } from 'lucide-react';
 import { useSaved } from '../context/SavedContext';
@@ -8,9 +9,21 @@ export default function MarketCard({ market }) {
   const { saved, toggleSaved } = useSaved();
   const isSaved = saved.markets.includes(market.id);
   const open = isOpenNow(market, useClock());
+  const ref = useRef()
+  const [delay, setDelay] = useState(null)
+
+  useLayoutEffect(() => {
+    if (ref.current) {
+      let element = ref.current;
+      let callback = () => setDelay(0)
+
+      element.addEventListener('animationend', callback)
+      return () => element.removeEventListener('animationend', callback);
+    }
+  },)
 
   return (
-    <article className="market-card">
+    <article className="market-card" ref={ref} style={{animationDelay: delay, opacity:.5}}>
       <div className="market-card-image-wrap">
         <Link className="market-card-image-link" to={`/markets/${market.id}`} aria-label={`Explore ${market.name}`}>
         <img src={marketImage(market)} alt="Fresh produce at a Lagos market" className="market-card-image" loading="lazy" decoding="async" width="480" height="480" />
