@@ -1,0 +1,68 @@
+.tree-home {
+  --tree-axis-mobile: 28px;
+}
+
+/*.tree-home .beanstalk {
+  bottom: -540px;
+}*/
+
+@media (max-width: 1050px) and (min-width: 761px) {
+  .tree-home .tree-canopy {
+    transform: translateX(-50%) translateX(-2.65vw);
+  }
+}
+
+@media (max-width: 760px) {
+  .tree-home .tree-canopy {
+    left: 12px;
+    transform: translateX(-50%) scaleX(.8);
+  }
+
+  .tree-home .roots-art {
+    left: var(--tree-axis-mobile);
+  }
+
+  .tree-home .beanstalk {
+    top: 45px;
+    bottom: -450px;
+  }
+
+  .tree-home .beanstalk-cylinder {
+    transform: rotateY(var(--tree-turn));
+  }
+
+  .tree-home .tree-chapter {
+    perspective: 1100px;
+  }
+
+  .tree-home .tree-chapter .branch-arm {
+    transform: rotateY(var(--branch-turn, 0deg));
+    transform-origin: 18px center;
+  }
+
+  .tree-home .tree-journey-tools {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .tree-home .tree-motion-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 380px) {
+  .tree-home .tree-canopy {
+    left: 15px;
+  }
+}
+
+.tree-home .roots-art {
+  transform: translate(calc(-50% + 4px), 0%) scaleX(.57) scaleY(1.01);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tree-home .tree-motion-toggle {
+    display: none;
+  }
+}

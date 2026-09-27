@@ -13,14 +13,12 @@ function useTreeMotion(root, enabled) {
   useEffect(() => {
     const element = root.current;
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const compact = window.matchMedia('(max-width: 760px)');
     const journey = element.querySelector('.tree-journey');
     const sections = [...element.querySelectorAll('.tree-chapter')];
     let frame = 0;
     function paint() {
       frame = 0;
-      const still = !enabled || preference.matches || compact.matches;
-      if (still) {
+      if (!enabled || preference.matches) {
         element.style.setProperty('--tree-turn', '0deg');
         sections.forEach(section => section.style.setProperty('--branch-turn', '0deg'));
         return;
@@ -28,13 +26,13 @@ function useTreeMotion(root, enabled) {
       const viewportCenter = window.innerHeight / 2;
       const top = journey.getBoundingClientRect().top;
       const turn = (viewportCenter - top) * 0.065;
-      element.style.setProperty('--tree-turn', `${still  ? 0 : turn}deg`);
+      element.style.setProperty('--tree-turn', `${turn}deg`);
       sections.forEach((section) => {
         const bounds = section.getBoundingClientRect();
         // Each branch has a different starting angle on the same turning trunk.
         // Limit off-screen rotation so content never flips or becomes inaccessible.
         const angle = Math.max(-42, Math.min(42, (viewportCenter - bounds.top - bounds.height / 2) * 0.065));
-        section.style.setProperty('--branch-turn', `${still ? 0 : angle}deg`);
+        section.style.setProperty('--branch-turn', `${angle}deg`);
       });
     }
     function schedule() {
@@ -44,7 +42,6 @@ function useTreeMotion(root, enabled) {
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', schedule);
     preference.addEventListener('change', schedule);
-    compact.addEventListener('change', schedule);
     const observer = new ResizeObserver(schedule);
     observer.observe(element);
     return () => {
@@ -52,7 +49,6 @@ function useTreeMotion(root, enabled) {
       window.removeEventListener('scroll', schedule);
       window.removeEventListener('resize', schedule);
       preference.removeEventListener('change', schedule);
-      compact.removeEventListener('change', schedule);
       observer.disconnect();
     };
   }, [root, enabled]);

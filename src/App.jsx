@@ -13,6 +13,7 @@ import './Style/TreeHome.css';
 import './Style/InfoPages.css';
 import './Style/AuthPages.css';
 import './Style/Quality.css';
+import './Style/TreeAlignment.css';
 
 
 function ScrollToTop() {

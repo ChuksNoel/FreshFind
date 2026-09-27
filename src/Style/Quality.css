@@ -52,8 +52,8 @@
 .produce-hero { background-image: linear-gradient(90deg, #173b2deb, #173b2dbb), image-set(url('/images/optimized/seasonal-produce-960.avif') type('image/avif'), url('/images/optimized/seasonal-produce-960.webp') type('image/webp')); }
 @media (max-width: 760px) {
   /* Skip off-screen tree layout until it nears the viewport; content stays accessible. */
-  .tree-journey { content-visibility: auto; contain-intrinsic-size: auto 1900px; }
-  .tree-roots { content-visibility: auto; contain-intrinsic-size: auto 760px; }
+  .tree-journey {contain-intrinsic-size: auto 1900px; }
+  .tree-roots { contain-intrinsic-size: auto 760px; }
   .detail-hero { background-image: linear-gradient(90deg, rgba(6,36,28,.92), rgba(6,36,28,.72)), var(--market-photo-mobile); }
   .produce-hero { background-image: linear-gradient(90deg, #173b2deb, #173b2dbb), image-set(url('/images/optimized/seasonal-produce-480.avif') type('image/avif'), url('/images/optimized/seasonal-produce-480.webp') type('image/webp')); }
   .hero-search input, .search-field input, .auth-field input,

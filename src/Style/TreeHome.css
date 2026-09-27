@@ -709,7 +709,7 @@
 
 @media (max-width: 1050px) and (min-width: 761px) {
   .beanstalk {
-    top: 70px;
+    top: -10px;
   }
   .branch-arm {
     padding-left: 52px;
