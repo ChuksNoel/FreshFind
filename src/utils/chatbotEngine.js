@@ -11,59 +11,44 @@ const normalizeText = (text) => {
 
 // Detect a produce item
 const findProduce = (message) => {
+  const text = normalizeText(message);
 
-    const text = normalizeText(message);
-
-    return produceData.find((produce) =>
-        text.includes(produce.name.toLowerCase())
-    );
-
+  return produceData.find((produce) =>
+    text.includes(produce.name.toLowerCase())
+  );
 };
 
 
 // Detect a market
 const findMarket = (message) => {
+  const text = normalizeText(message);
 
-    const text = normalizeText(message);
-
-    return marketsData.find((market) =>
-        text.includes(market.name.toLowerCase())
-    );
-
+  return marketsData.find((market) =>
+      text.includes(market.name.toLowerCase())
+  );
 };
 
 
 // Detect area/location
 const findArea = (message) => {
+  const text = normalizeText(message);
 
-    const text = normalizeText(message);
-
-    return marketsData.find((market) =>
-        text.includes(market.area.toLowerCase())
-    );
-
+  return marketsData.find((market) =>
+      text.includes(market.area.toLowerCase())
+  );
 };
 
 
 // Detect day
 const findDay = (message) => {
+  const days = [
+        "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"
+  ];
+  const text = normalizeText(message);
 
-    const days = [
-        "monday",
-        "tuesday",
-        "wednesday",
-        "thursday",
-        "friday",
-        "saturday",
-        "sunday"
-    ];
-
-    const text = normalizeText(message);
-
-    return days.find((day) =>
-        text.includes(day)
-    );
-
+  return days.find((day) =>
+      text.includes(day)
+  );
 };
 
 

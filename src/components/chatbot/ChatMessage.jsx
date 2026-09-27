@@ -18,7 +18,7 @@ const ChatMessage = ({ message, loading }) => {
       <div className="chat-message user-message">
         {message.text}
       </div>
-      : !showMsg && loading ?
+      : !showMsg?
         <div className="chat-message bot-message">
           <Circle fill="var(--ink)" size={15} className='waiting' />
           <Circle fill="var(--ink)" size={15} className='waiting' />

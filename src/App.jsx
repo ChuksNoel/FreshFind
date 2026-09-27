@@ -9,12 +9,12 @@ import { SavedProvider } from './context/SavedContext';
 import { ClockProvider } from './context/ClockContext';
 
 // Components
-import ChatBot from './components/chatbot/ChatBot';
-import Navbar from './components/Navbar';
+import ChatBot from './Components/chatbot/ChatBot';
+import Navbar from './Components/Navbar';
 import Footer from './Shared/Footer';
 import { pageElement } from './routePages';
 import Spanify from './Components/Spanify';
-import PageMetadata from './components/PageMetadata';
+import PageMetadata from './Components/PageMetadata';
 
 // The styles
 import './App.css';
