@@ -5,8 +5,8 @@ import { Circle } from "lucide-react";
 import { useEffect } from "react";
 
 
-const ChatMessage = ({ message }) => {
-  const [showMsg, setShowMsg] = useState(false)
+const ChatMessage = ({ message, loading }) => {
+  const [showMsg, setShowMsg] = useState(loading ^ false)
 
   useEffect(() => {
     let callback = () => setShowMsg(true)
@@ -18,7 +18,7 @@ const ChatMessage = ({ message }) => {
       <div className="chat-message user-message">
         {message.text}
       </div>
-      : !showMsg ?
+      : !showMsg && loading ?
         <div className="chat-message bot-message">
           <Circle fill="var(--ink)" size={15} className='waiting' />
           <Circle fill="var(--ink)" size={15} className='waiting' />

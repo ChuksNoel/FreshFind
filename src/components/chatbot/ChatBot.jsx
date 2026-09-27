@@ -66,7 +66,7 @@ export default function ChatBot() {
             <button type="button" onClick={closeChat} aria-label="Close assistant"><X size={19} /></button>
           </div>
           <div className="chat-body" ref={bodyRef} role="log" aria-live="polite" aria-relevant="additions" onClick={(event) => { if (event.target.closest('a')) closeChat(); }}>
-            {messages.map((message, index) => <ChatMessage key={index} message={message} />)}
+            {messages.map((message, index) => <ChatMessage key={index} message={message} loading={index == message.length - 1} />)}
           </div>
           <div className="chat-suggestions">
             <button type="button" onClick={() => sendMessage('Markets open today')}>Open today</button>
