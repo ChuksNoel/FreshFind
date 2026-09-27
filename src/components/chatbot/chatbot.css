@@ -110,7 +110,9 @@
 }
 
 .bot-message .waiting{
-    animation: chatwait 1s ease-in calc(sibling-index() * .1s) infinite
+    animation: chatwait 1s ease-in calc(sibling-index() * .1s) infinite;
+    content-visibility: auto;
+
 }
 .user-message {
     margin-left: auto;
@@ -271,5 +273,11 @@
         right: 12px;
         bottom: 80px;
         max-height: calc(100dvh - 95px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bot-message .waiting {
+        animation: none;
     }
 }
