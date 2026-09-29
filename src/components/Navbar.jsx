@@ -14,6 +14,8 @@ function Navbar() {
     { to: '/saved', label: 'Saved' },
     { to: '/about', label: 'About Us' },
     { to: '/contact', label: 'Contact Us' },
+    { to: 'https://www.figma.com/design/oGwICFtXoONAouT9xsev4y/FreshFind-%25E2%2580%25A2-Website-UI-%25C2%25B7-Desktop---Mobile?node-id=0-1&t=HaGzRT1RmUKDyaNU-0', label: 'UI' },
+    { to: 'https://github.com/ChuksNoel/FreshFind', label: 'Source Code' },
   ];
 
   return (
