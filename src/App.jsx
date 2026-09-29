@@ -13,7 +13,7 @@ import ChatBot from './components/chatbot/ChatBot';
 import Navbar from './components/Navbar';
 import Footer from './Shared/Footer';
 import { pageElement } from './routePages';
-import Spanify from './components/Spanify';
+import Spanify from './Components/Spanify';
 import PageMetadata from './components/PageMetadata';
 
 // The styles
